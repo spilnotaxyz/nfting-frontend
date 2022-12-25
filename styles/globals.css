@@ -2,8 +2,22 @@ html,
 body {
   padding: 0;
   margin: 0;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+#__next {
+  height: 100vh;
+}
+
+[data-rk] {
+  height: 100vh;
+}
+
+[data-rk] ._9pm4ki3 {
+  bottom: 0 !important;
+  top: 0 !important;
 }
 
 a {
@@ -13,4 +27,68 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: NeueMachina;
+  src: url("/fonts/neue-machina/NeueMachina-Ultalight.woff2");
+  format: ("woff2");
+  font-display: swap;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: NeueMachina;
+  src: url("/fonts/neue-machina/NeueMachina-Light.woff2");
+  format: ("woff2");
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: NeueMachina;
+  src: url("/fonts/neue-machina/NeueMachina-Regular.woff2");
+  format: ("woff2");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: NeueMachina;
+  src: url("/fonts/neue-machina/NeueMachina-Medium.woff2");
+  format: ("woff2");
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: NeueMachina;
+  src: url("/fonts/neue-machina/NeueMachina-Bold.woff2");
+  format: ("woff2");
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: NeueMachina;
+  src: url("/fonts/neue-machina/NeueMachina-UltraBold.woff2");
+  format: ("woff2");
+  font-display: swap;
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: NeueMachina;
+  src: url("/fonts/neue-machina/NeueMachina-Black.woff2");
+  format: ("woff2");
+  font-display: swap;
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: PPMondwest;
+  src: url("/fonts/pp-mondwest/PPMondwest-Regular.otf");
+  format: ("opentype");
+  font-display: swap;
+  font-weight: 400;
 }
