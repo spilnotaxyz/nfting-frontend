@@ -65,7 +65,11 @@ export const GenerateWizardFillInformationStep = () => {
           next?.(localState)
         }}
       >
-        Continue
+        {localState.makeAWish ||
+        localState.whoBroughtYouHere ||
+        localState.yourFavouriteNFTCommunity
+          ? 'Continue'
+          : 'Skip'}
       </Button>
     </>
   )
