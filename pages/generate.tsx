@@ -18,9 +18,9 @@ const Generate: NextPage = () => {
             description: 'Choose information you want see on the card'
           },
           {
-            title: 'Fill information you want see on the card',
-            shortTitle: 'Fill information',
-            description: 'Fill information you want see on the card'
+            title: 'Add information you want see on the card (Optional)',
+            shortTitle: 'Add information',
+            description: 'Add information you want see on the card'
           },
           {
             title: 'Connect accounts',
