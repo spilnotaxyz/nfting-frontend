@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.1.0...v1.2.0) (2022-12-26)
+
+
+### Features
+
+* `theme` secondary color set to `white` ([42c1c79](https://github.com/spilnota-xyz/eve-frontend/commit/42c1c7995929368da3d540f0bc35b83e1cdaa0ce))
+* optional add info step ([6337fbd](https://github.com/spilnota-xyz/eve-frontend/commit/6337fbdba240201f3877b57467bbae2d27f999c5))
+* steps back button ([e0e253f](https://github.com/spilnota-xyz/eve-frontend/commit/e0e253f7852c0baaa821fb417cc0e74dcc7af700))
+
 # [1.1.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.0.0...v1.1.0) (2022-12-26)
 
 
