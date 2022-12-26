@@ -1,5 +1,4 @@
 import { AppBar, Box, Toolbar, Container } from '@mui/material'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Logo } from '@ui/branding'
 import { Link } from '@components'
 
@@ -18,7 +17,9 @@ export const Header = () => (
             <Logo />
           </Link>
           <Box sx={{ flexGrow: 1 }} />
-          <ConnectButton />
+          <Link sx={{ lineHeight: 0 }} href="/about">
+            About
+          </Link>
         </Toolbar>
       </AppBar>
     </Container>

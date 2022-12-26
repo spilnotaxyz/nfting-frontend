@@ -20,7 +20,7 @@ import createEmotionCache from '@utils/createEmotionCache'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from '@theme'
 import { Box, Container, CssBaseline } from '@mui/material'
-import { Footer, Header } from '@components'
+import { Footer, Header } from '@components/layout'
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
