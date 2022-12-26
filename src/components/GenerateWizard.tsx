@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Step,
   StepIconProps,
   StepLabel,
@@ -126,6 +127,25 @@ export const GenerateWizard = ({
     {}
   )
 
+  const next =
+    step !== steps.length - 1
+      ? (newState?: GenerateWizardState) => {
+          const skip = 0
+          // if (
+          //   step === 0 &&
+          //   !newState.includeMakeAWish &&
+          //   !newState.includeWhoBroughtYouHere &&
+          //   !newState.includeYourFavouriteNFTCommunity
+          // ) {
+          //   skip = 1
+          // }
+          setStep((step) => step + 1 + skip)
+          if (!newState) return
+          setState((prevState) => ({ ...prevState, ...newState }))
+        }
+      : undefined
+  const prev = step !== 0 ? () => setStep((step) => step - 1) : undefined
+
   return (
     <Grid container spacing={2}>
       <Grid xs={6} sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -170,24 +190,8 @@ export const GenerateWizard = ({
           <GenerateWizardContext.Provider
             value={{
               step,
-              next:
-                step !== steps.length - 1
-                  ? (newState?: GenerateWizardState) => {
-                      const skip = 0
-                      // if (
-                      //   step === 0 &&
-                      //   !newState.includeMakeAWish &&
-                      //   !newState.includeWhoBroughtYouHere &&
-                      //   !newState.includeYourFavouriteNFTCommunity
-                      // ) {
-                      //   skip = 1
-                      // }
-                      setStep((step) => step + 1 + skip)
-                      if (!newState) return
-                      setState((prevState) => ({ ...prevState, ...newState }))
-                    }
-                  : undefined,
-              prev: step !== 0 ? () => setStep((step) => step - 1) : undefined,
+              next,
+              prev,
               state
             }}
           >
@@ -198,11 +202,18 @@ export const GenerateWizard = ({
               flexDirection="column"
               p={5}
             >
-              {Children.map(children, (child, i) => {
-                if (i === step) {
-                  return child
-                }
-              })}
+              <>
+                {Children.map(children, (child, i) => {
+                  if (i === step) {
+                    return child
+                  }
+                })}
+                {prev && (
+                  <Button onClick={prev} sx={{ mt: 2 }}>
+                    ← Back
+                  </Button>
+                )}
+              </>
             </Box>
           </GenerateWizardContext.Provider>
         </BlurredPaper>

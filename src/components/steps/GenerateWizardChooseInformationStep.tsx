@@ -1,13 +1,6 @@
 import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
 import { Info } from '@mui/icons-material'
-import {
-  Box,
-  BoxProps,
-  Button,
-  Chip,
-  Stack,
-  Typography
-} from '@mui/material'
+import { Box, BoxProps, Button, Chip, Stack, Typography } from '@mui/material'
 import { useState, useCallback } from 'react'
 
 const DataBlock = ({
