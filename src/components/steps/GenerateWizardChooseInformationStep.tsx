@@ -1,13 +1,14 @@
 import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
-import { Box, BoxProps, Button, Stack, styled, Typography } from '@mui/material'
-import { BlurredPaper } from '@ui/BlurredPaper'
+import { Info } from '@mui/icons-material'
+import {
+  Box,
+  BoxProps,
+  Button,
+  Chip,
+  Stack,
+  Typography
+} from '@mui/material'
 import { useState, useCallback } from 'react'
-
-const Block = styled(BlurredPaper)({
-  background: 'rgba(255, 255, 255, 0.4)',
-  border: 'none',
-  padding: 10
-})
 
 const DataBlock = ({
   onSelect,
@@ -27,13 +28,17 @@ const DataBlock = ({
       }}
       sx={{
         cursor: 'pointer',
-        background: selected ? '#19097C' : '#fff',
-        border: '1px solid #A9B7C5'
+        background: selected ? '#19097C' : 'rgba(255, 255, 255, 0.1)',
+        border: `1px solid ${
+          selected ? 'rgba(20, 11, 227, 1)' : 'rgba(255, 255, 255, 0.2)'
+        }`
       }}
     >
       <Typography
-        color={selected ? 'white' : 'black'}
+        color="white"
         variant="body1"
+        fontFamily="Inter"
+        fontWeight="500"
         component="span"
         whiteSpace="nowrap"
       >
@@ -57,6 +62,7 @@ export type GenerateWizardChooseInformationStepState = Partial<{
   biggestPurchaseInETH: boolean
   biggestSaleInETH: boolean
   top100OSNFTHolding: boolean
+  avgHoldTime: boolean
 }>
 
 export const GenerateWizardChooseInformationStep = () => {
@@ -72,71 +78,105 @@ export const GenerateWizardChooseInformationStep = () => {
     [setLocalState]
   )
 
+  const [hovering, setHovering] = useState(false)
+
   return (
     <>
-      <Stack spacing={1}>
-        <Block>
+      <Stack spacing={2}>
+        <Stack spacing={1}>
+          <Typography variant="subtitle1">Mints</Typography>
           <CollapsableStack gap="10px">
             <DataBlock
-              label="Number of mints"
+              label="NFTs Minted"
               onSelect={(selected) =>
                 appendLocalState({ numberOfMints: selected })
               }
             />
             <DataBlock
-              label="Spent on mints"
+              label="Spent on Mints (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ spentOnMints: selected })
               }
             />
+          </CollapsableStack>
+        </Stack>
+        <Stack spacing={1}>
+          <Typography variant="subtitle1">Purchases</Typography>
+          <CollapsableStack gap="10px">
             <DataBlock
-              label="Total NFTs bought"
+              label="NFTs Bought"
               onSelect={(selected) =>
                 appendLocalState({ totalNFTsBought: selected })
               }
             />
             <DataBlock
-              label="Total NFTs sold"
-              onSelect={(selected) =>
-                appendLocalState({ totalNFTsSold: selected })
-              }
-            />
-          </CollapsableStack>
-        </Block>
-        <Block>
-          <CollapsableStack gap="10px">
-            <DataBlock
-              label="Total sales in ETH"
-              onSelect={(selected) =>
-                appendLocalState({ totalSalesInETH: selected })
-              }
-            />
-            <DataBlock
-              label="Total spent in ETH"
+              label="Total Spent (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ totalSpentInETH: selected })
               }
             />
             <DataBlock
-              label="Biggest purchase in ETH"
+              label="Biggest purchase (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ biggestPurchaseInETH: selected })
               }
             />
+          </CollapsableStack>
+        </Stack>
+        <Stack spacing={1}>
+          <Typography variant="subtitle1">Sales</Typography>
+          <CollapsableStack gap="10px">
             <DataBlock
-              label="Biggest sale in ETH"
+              label="NFTs Sold"
+              onSelect={(selected) =>
+                appendLocalState({ totalNFTsSold: selected })
+              }
+            />
+            <DataBlock
+              label="Total Sales (Ξ)"
+              onSelect={(selected) =>
+                appendLocalState({ totalSalesInETH: selected })
+              }
+            />
+            <DataBlock
+              label="Biggest Sale (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ biggestSaleInETH: selected })
               }
             />
+          </CollapsableStack>
+        </Stack>
+        <Stack spacing={1}>
+          <Box>
+            <Typography
+              variant="subtitle1"
+              width="min-content"
+              display="flex"
+              alignItems="center"
+              onMouseEnter={() => setHovering(true)}
+              onMouseLeave={() => setHovering(false)}
+            >
+              Holds <Info sx={{ ml: 1, color: '#fff !important' }} />
+              {hovering && (
+                <Chip label="FP > 1Ξ, Volume 30Ξ last 30 days" sx={{ ml: 1 }} />
+              )}
+            </Typography>
+          </Box>
+          <CollapsableStack gap="10px">
             <DataBlock
-              label="Top 100 OS NFT holding"
+              label="NFT Holdings Top 100"
               onSelect={(selected) =>
                 appendLocalState({ top100OSNFTHolding: selected })
               }
             />
+            <DataBlock
+              label="Avg Hold Time"
+              onSelect={(selected) =>
+                appendLocalState({ avgHoldTime: selected })
+              }
+            />
           </CollapsableStack>
-        </Block>
+        </Stack>
       </Stack>
       <Box flexGrow={1} />
       <Button
