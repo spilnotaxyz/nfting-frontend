@@ -31,6 +31,7 @@ const theme = createTheme({
         root: {
           textTransform: 'none',
           fontFamily: 'NeueMachina',
+          fontSize: 22,
           borderRadius: 10
         }
       }

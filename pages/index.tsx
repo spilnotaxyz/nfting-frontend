@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { getAuthOptions } from './api/auth/[...nextauth]'
 import { Snow } from '@ui'
 import Marquee from 'react-fast-marquee'
+import { Link } from '@components'
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   return {
@@ -37,15 +38,19 @@ const Home: NextPage = () => {
           <Box display="flex" justifyContent="center">
             <Snow />
           </Box>
-
-          <Button
-            variant="contained"
-            size="large"
-            fullWidth
-            sx={{ p: 2, mt: 5 }}
+          <Link
+            href="/generate"
+            sx={{ '&:hover': { textDecoration: 'none !important' } }}
           >
-            Make my own card ✨
-          </Button>
+            <Button
+              variant="contained"
+              size="large"
+              fullWidth
+              sx={{ p: 2, mt: 5 }}
+            >
+              Make my own card ✨
+            </Button>
+          </Link>
         </main>
       </Container>
       <Marquee gradient={false}>
