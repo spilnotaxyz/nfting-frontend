@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.0.0...v1.1.0) (2022-12-26)
+
+
+### Features
+
+* choose & fill information, connect steps ([07f0b5e](https://github.com/spilnota-xyz/eve-frontend/commit/07f0b5e8278b127da354715811b435d6b20c0f28))
+
 # 1.0.0 (2022-12-25)
 
 
