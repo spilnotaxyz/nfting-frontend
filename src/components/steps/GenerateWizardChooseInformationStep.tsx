@@ -149,7 +149,7 @@ export const GenerateWizardChooseInformationStep = () => {
               onMouseEnter={() => setHovering(true)}
               onMouseLeave={() => setHovering(false)}
             >
-              Holds <Info sx={{ ml: 1, color: '#fff !important' }} />
+              Holds <Info color="secondary" sx={{ ml: 1 }} />
               {hovering && (
                 <Chip label="FP > 1Ξ, Volume 30Ξ last 30 days" sx={{ ml: 1 }} />
               )}
