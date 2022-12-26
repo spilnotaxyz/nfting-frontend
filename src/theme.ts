@@ -23,6 +23,10 @@ const theme = createTheme({
       fontFamily: 'NeueMachina',
       fontSize: '2rem',
       fontWeight: 500
+    },
+    subtitle1: {
+      color: 'rgba(255, 255, 255, 0.6)',
+      fontFamily: 'NeueMachina'
     }
   },
   components: {
@@ -42,6 +46,14 @@ const theme = createTheme({
           backgroundImage: 'url(/background.svg)',
           backgroundSize: 'cover',
           backgroundAttachment: 'fixed'
+        }
+      }
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          background: 'rgba(255, 255, 255, 0.2)',
+          border: '1px solid rgba(255, 255, 255, 0.2)'
         }
       }
     }
