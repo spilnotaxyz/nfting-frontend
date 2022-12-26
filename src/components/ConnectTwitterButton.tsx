@@ -3,9 +3,6 @@ import { signIn, useSession } from 'next-auth/react'
 import { Button, ButtonProps, styled } from '@mui/material'
 
 export const ConnectTwitterButton = styled((props: ButtonProps) => {
-  const handleConnect = () => {
-    fetch('https://api.eve.spilnota.xyz/twitter/auth')
-  }
   const { data } = useSession()
   if (!data || !data.user.name || !data.user.image)
     return (
@@ -20,7 +17,7 @@ export const ConnectTwitterButton = styled((props: ButtonProps) => {
     )
 
   return (
-    <Button {...props} disabled startIcon={<Twitter />} onClick={handleConnect}>
+    <Button {...props} disabled startIcon={<Twitter />}>
       Logged in as {data.user.name}
     </Button>
   )
