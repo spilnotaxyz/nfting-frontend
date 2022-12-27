@@ -1,19 +1,9 @@
 import { Box, Typography, Button, Container } from '@mui/material'
-import type { GetServerSideProps, NextPage } from 'next'
-import { unstable_getServerSession } from 'next-auth'
+import type { NextPage } from 'next'
 import Head from 'next/head'
-import { getAuthOptions } from './api/auth/[...nextauth]'
 import { Snow } from '@ui'
 import Marquee from 'react-fast-marquee'
 import { Link } from '@components'
-
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  return {
-    props: {
-      session: await unstable_getServerSession(req, res, getAuthOptions(req))
-    }
-  }
-}
 
 const Home: NextPage = () => {
   return (
