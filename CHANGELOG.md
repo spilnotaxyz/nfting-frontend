@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.2.0...v1.2.1) (2022-12-27)
+
+
+### Bug Fixes
+
+* `getServerSideProps` call removed ([4acef4a](https://github.com/spilnota-xyz/eve-frontend/commit/4acef4a56a37b5678c62f342a665c8de17b170ad))
+
 # [1.2.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.1.0...v1.2.0) (2022-12-26)
 
 
