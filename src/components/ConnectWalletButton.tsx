@@ -1,9 +1,17 @@
 import { ConnectButton as RainbowKitConnectButton } from '@rainbow-me/rainbowkit'
-import { Button, ButtonProps } from '@mui/material'
+import { Button, ButtonProps, styled } from '@mui/material'
 import { Check } from '@mui/icons-material'
 
 const formatAddress = (address: string): string =>
   `${address.slice(0, 6)}...${address.slice(-4)}`
+
+const StyledButton = styled(Button)({
+  backgroundColor: '#000',
+  color: '#fff',
+  '&:hover': {
+    backgroundColor: '#272727'
+  }
+})
 
 export const ConnectWalletButton = (props: ButtonProps) => {
   return (
@@ -25,7 +33,7 @@ export const ConnectWalletButton = (props: ButtonProps) => {
               }
             })}
           >
-            <Button
+            <StyledButton
               onClick={openConnectModal}
               type="button"
               {...props}
@@ -41,7 +49,7 @@ export const ConnectWalletButton = (props: ButtonProps) => {
               ) : (
                 'Connect Wallet'
               )}
-            </Button>
+            </StyledButton>
           </div>
         )
       }}

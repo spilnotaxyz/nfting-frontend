@@ -22,5 +22,8 @@ export const ConnectTwitterButton = styled((props: ButtonProps) => {
     </Button>
   )
 })({
-  backgroundColor: '#fff'
+  backgroundColor: '#fff',
+  '&:hover': {
+    backgroundColor: '#bababa'
+  }
 })
