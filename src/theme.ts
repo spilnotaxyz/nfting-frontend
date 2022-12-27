@@ -36,7 +36,9 @@ const theme = createTheme({
           textTransform: 'none',
           fontFamily: 'NeueMachina',
           fontSize: 22,
-          borderRadius: 10
+          borderRadius: 15,
+          paddingTop: 24,
+          paddingBottom: 24
         }
       }
     },
