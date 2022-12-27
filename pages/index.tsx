@@ -1,7 +1,6 @@
-import { Box, Typography, Button, Container } from '@mui/material'
+import { Typography, Button, Container } from '@mui/material'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Snow } from '@ui'
 import Marquee from 'react-fast-marquee'
 import { Link } from '@components'
 
@@ -18,30 +17,37 @@ const Home: NextPage = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main>
-          <Typography variant="h2" component="h1" gutterBottom align="center">
-            Create your own сard which sums up all your
-            <br /> year activity and statistics. Share with friends wishing the
-            <br /> best in New Year.
-            <br />
+        <Container
+          component="main"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}
+        >
+          <Typography
+            variant="h2"
+            component="h1"
+            gutterBottom
+            align="center"
+            sx={{ maxWidth: 875 }}
+          >
+            Create your NFTing card which sums up your previous on-chain
+            activity. Share with friends, add your wishes and appreciation.
           </Typography>
-          <Box display="flex" justifyContent="center">
-            <Snow />
-          </Box>
           <Link
             href="/generate"
-            sx={{ '&:hover': { textDecoration: 'none !important' } }}
+            sx={{ '&:hover': { textDecoration: 'none !important' }, mt: 5 }}
           >
             <Button
               variant="contained"
               size="large"
-              fullWidth
-              sx={{ p: 2, mt: 5 }}
+              sx={{ px: 7.5, py: 4.625, fontSize: 22, borderRadius: '20px' }}
             >
-              Make my own card ✨
+              Make your own card
             </Button>
           </Link>
-        </main>
+        </Container>
       </Container>
       <Marquee gradient={false}>
         <Typography
