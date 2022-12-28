@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.2.1...v1.3.0) (2022-12-28)
+
+
+### Features
+
+* apply some style changes ([8475def](https://github.com/spilnota-xyz/eve-frontend/commit/8475def9d9f8456d37cad31a8bc3b6e31abb9212))
+* mobile ([fd16c68](https://github.com/spilnota-xyz/eve-frontend/commit/fd16c68e40a1f400190c05f99e1598ababc84f46))
+
 ## [1.2.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.2.0...v1.2.1) (2022-12-27)
 
 
