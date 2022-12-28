@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/spilnota-xyz/eve-frontend/compare/v1.3.1...v1.3.2) (2022-12-28)
+
+
+### Bug Fixes
+
+* get back to OAuth1.0 ([2e88c77](https://github.com/spilnota-xyz/eve-frontend/commit/2e88c77e0445bdc90128654086ba887c56c0b75a))
+
 ## [1.3.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.3.0...v1.3.1) (2022-12-28)
 
 
