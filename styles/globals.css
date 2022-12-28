@@ -26,64 +26,62 @@ a {
 
 @font-face {
   font-family: NeueMachina;
-  src: url("/fonts/neue-machina/NeueMachina-Ultalight.woff2");
-  format: ("woff2");
+  src: url('/fonts/neue-machina/NeueMachina-Ultalight.woff2') format('woff2');
   font-display: swap;
   font-weight: 200;
 }
 
 @font-face {
   font-family: NeueMachina;
-  src: url("/fonts/neue-machina/NeueMachina-Light.woff2");
-  format: ("woff2");
+  src: url('/fonts/neue-machina/NeueMachina-Light.woff2') format('woff2');
   font-display: swap;
   font-weight: 300;
 }
 
 @font-face {
   font-family: NeueMachina;
-  src: url("/fonts/neue-machina/NeueMachina-Regular.woff2");
-  format: ("woff2");
+  src: url('/fonts/neue-machina/NeueMachina-Regular.woff2') format('woff2');
   font-display: swap;
   font-weight: 400;
 }
 
 @font-face {
   font-family: NeueMachina;
-  src: url("/fonts/neue-machina/NeueMachina-Medium.woff2");
-  format: ("woff2");
+  src: url('/fonts/neue-machina/NeueMachina-Medium.woff2') format('woff2');
   font-display: swap;
   font-weight: 500;
 }
 
 @font-face {
   font-family: NeueMachina;
-  src: url("/fonts/neue-machina/NeueMachina-Bold.woff2");
-  format: ("woff2");
+  src: url('/fonts/neue-machina/NeueMachina-Bold.woff2') format('woff2');
   font-display: swap;
   font-weight: 700;
 }
 
 @font-face {
   font-family: NeueMachina;
-  src: url("/fonts/neue-machina/NeueMachina-UltraBold.woff2");
-  format: ("woff2");
+  src: url('/fonts/neue-machina/NeueMachina-UltraBold.woff2') format('woff2');
   font-display: swap;
   font-weight: 800;
 }
 
 @font-face {
   font-family: NeueMachina;
-  src: url("/fonts/neue-machina/NeueMachina-Black.woff2");
-  format: ("woff2");
+  src: url('/fonts/neue-machina/NeueMachina-Black.woff2') format('woff2');
   font-display: swap;
   font-weight: 900;
 }
 
 @font-face {
   font-family: PPMondwest;
-  src: url("/fonts/pp-mondwest/PPMondwest-Regular.otf");
-  format: ("opentype");
+  src: url('/fonts/pp-mondwest/PPMondwest-Regular.otf') format('opentype');
+  font-display: swap;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter', sans-serif;
+  src: url('/fonts/Inter/Inter-Regular.ttf'), format('ttf');
   font-display: swap;
   font-weight: 400;
 }
