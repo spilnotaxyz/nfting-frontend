@@ -15,8 +15,7 @@ export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
   const providers = [
     TwitterProvider({
       clientId: process.env.TWITTER_CUSTOMER_ID,
-      clientSecret: process.env.TWITTER_CUSTOMER_SECRET,
-      version: '2.0'
+      clientSecret: process.env.TWITTER_CUSTOMER_SECRET
     }),
     CredentialsProvider({
       async authorize(credentials) {
