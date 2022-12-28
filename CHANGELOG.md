@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.3.0...v1.3.1) (2022-12-28)
+
+
+### Bug Fixes
+
+* `rainbowkit` styling issue ([4de7dd3](https://github.com/spilnota-xyz/eve-frontend/commit/4de7dd3e5b93e427c8529a6132f53dfb859f0024))
+
 # [1.3.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.2.1...v1.3.0) (2022-12-28)
 
 
