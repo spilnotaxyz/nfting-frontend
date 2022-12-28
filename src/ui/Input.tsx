@@ -1,6 +1,9 @@
 import { alpha, InputBase, styled } from '@mui/material'
 
 export const Input = styled(InputBase)(({ theme }) => ({
+  [theme.breakpoints.down('sm')]: {
+    width: '100%'
+  },
   'label + &': {
     marginTop: theme.spacing(3)
   },
@@ -13,6 +16,10 @@ export const Input = styled(InputBase)(({ theme }) => ({
     fontSize: 16,
     width: 'auto',
     minWidth: 325,
+    [theme.breakpoints.down('sm')]: {
+      minWidth: 'auto',
+      width: '100%'
+    },
     padding: '10px 12px',
     transition: theme.transitions.create([
       'border-color',

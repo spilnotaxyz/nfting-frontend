@@ -1,6 +1,14 @@
 import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
 import { Info } from '@mui/icons-material'
-import { Box, BoxProps, Button, Chip, Stack, Typography } from '@mui/material'
+import {
+  Box,
+  BoxProps,
+  Button,
+  Chip,
+  Stack,
+  Typography,
+  useTheme
+} from '@mui/material'
 import { useState, useCallback } from 'react'
 
 const DataBlock = ({
@@ -11,6 +19,7 @@ const DataBlock = ({
   label: string
 }) => {
   const [selected, setSelected] = useState(false)
+  const theme = useTheme()
   return (
     <Box
       borderRadius="10px"
@@ -24,7 +33,10 @@ const DataBlock = ({
         background: selected ? '#19097C' : 'rgba(255, 255, 255, 0.1)',
         border: `1px solid ${
           selected ? 'rgba(20, 11, 227, 1)' : 'rgba(255, 255, 255, 0.2)'
-        }`
+        }`,
+        [theme.breakpoints.down('sm')]: {
+          p: 1.25
+        }
       }}
     >
       <Typography
@@ -34,6 +46,11 @@ const DataBlock = ({
         fontWeight="500"
         component="span"
         whiteSpace="nowrap"
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            fontSize: 14
+          }
+        }}
       >
         {label} {selected ? '-' : '+'}
       </Typography>
@@ -41,9 +58,22 @@ const DataBlock = ({
   )
 }
 
-const CollapsableStack = ({ gap, ...rest }: BoxProps & { gap: string }) => (
-  <Box {...rest} display="flex" flexWrap="wrap" gap={gap} />
-)
+const CollapsableStack = ({ ...rest }: BoxProps) => {
+  const theme = useTheme()
+  return (
+    <Box
+      {...rest}
+      display="flex"
+      flexWrap="wrap"
+      gap="10px"
+      sx={{
+        [theme.breakpoints.down('sm')]: {
+          gap: '5px'
+        }
+      }}
+    />
+  )
+}
 
 export type GenerateWizardChooseInformationStepState = Partial<{
   numberOfMints: boolean
@@ -78,7 +108,7 @@ export const GenerateWizardChooseInformationStep = () => {
       <Stack spacing={2}>
         <Stack spacing={1}>
           <Typography variant="subtitle1">Mints</Typography>
-          <CollapsableStack gap="10px">
+          <CollapsableStack>
             <DataBlock
               label="NFTs Minted"
               onSelect={(selected) =>
@@ -95,7 +125,7 @@ export const GenerateWizardChooseInformationStep = () => {
         </Stack>
         <Stack spacing={1}>
           <Typography variant="subtitle1">Purchases</Typography>
-          <CollapsableStack gap="10px">
+          <CollapsableStack>
             <DataBlock
               label="NFTs Bought"
               onSelect={(selected) =>
@@ -118,7 +148,7 @@ export const GenerateWizardChooseInformationStep = () => {
         </Stack>
         <Stack spacing={1}>
           <Typography variant="subtitle1">Sales</Typography>
-          <CollapsableStack gap="10px">
+          <CollapsableStack>
             <DataBlock
               label="NFTs Sold"
               onSelect={(selected) =>
@@ -146,18 +176,17 @@ export const GenerateWizardChooseInformationStep = () => {
               width="min-content"
               display="flex"
               alignItems="center"
-              onMouseEnter={() => setHovering(true)}
-              onMouseLeave={() => setHovering(false)}
+              onClick={() => setHovering((prevState) => !prevState)}
             >
-              Holds <Info color="secondary" sx={{ ml: 1 }} />
+              Holds <Info color="secondary" sx={{ ml: 1, cursor: 'pointer' }} />
               {hovering && (
                 <Chip label="FP > 1Ξ, Volume 30Ξ last 30 days" sx={{ ml: 1 }} />
               )}
             </Typography>
           </Box>
-          <CollapsableStack gap="10px">
+          <CollapsableStack>
             <DataBlock
-              label="NFT Holdings Top 100"
+              label="NFT Holdings"
               onSelect={(selected) =>
                 appendLocalState({ top100OSNFTHolding: selected })
               }
