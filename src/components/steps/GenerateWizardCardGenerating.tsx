@@ -1,10 +1,10 @@
-// import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
 import { useState, useEffect } from 'react'
 import { Box, Typography, styled } from '@mui/material'
 import LinearProgress, {
   LinearProgressProps,
   linearProgressClasses
 } from '@mui/material/LinearProgress'
+import BouncingDotsLoader from '../../ui/BouncingDotsLoader'
 
 function LinearProgressWithLabel(
   props: LinearProgressProps & { value: number }
@@ -19,8 +19,8 @@ function LinearProgressWithLabel(
           minWidth: 35,
           position: 'absolute',
           bottom: '20px',
-          left: `${props.value === 100 ? 90 : props.value / 1.19}%`,
-          transition: '1s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+          left: '50%',
+          transform: 'translate(-50%)'
         }}
       >
         <Typography
@@ -42,21 +42,36 @@ const BorderLinearProgress = styled(LinearProgressWithLabel)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 10,
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.main,
+    transition: '0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
   }
 }))
 
+const phrases = [
+  'Looking for cutest NFT puppies',
+  'Looking for cutest NFT apes',
+  'Looking for cutest NFT cats',
+  'Looking for cutest NFT cows'
+]
+
 export const GenerateWizardCardGenerating = () => {
   const [progress, setProgress] = useState(10)
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timerProgress = setInterval(() => {
       setProgress((prevProgress) =>
         prevProgress >= 100 ? 10 : prevProgress + 10
       )
-    }, 900)
+    }, 1200)
+    const timerPhrase = setInterval(() => {
+      setCurrentPhraseIndex((prevPhraseIndex) =>
+        ++prevPhraseIndex > phrases.length - 1 ? 0 : prevPhraseIndex
+      )
+    }, 2000)
     return () => {
-      clearInterval(timer)
+      clearInterval(timerProgress)
+      clearInterval(timerPhrase)
     }
   }, [])
 
@@ -71,7 +86,7 @@ export const GenerateWizardCardGenerating = () => {
         borderRadius="30px"
         border="1px solid rgba(255, 255, 255, 0.2)"
       >
-        Looking for cutest NFT puppies...
+        {phrases[currentPhraseIndex]} <BouncingDotsLoader />
       </Typography>
       <Box
         sx={{

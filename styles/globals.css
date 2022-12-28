@@ -85,3 +85,31 @@ a {
   font-display: swap;
   font-weight: 400;
 }
+
+.bouncing-loader {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.bouncing-loader > div {
+  width: 3px;
+  height: 3px;
+  margin: 2px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: bouncing-loader 0.5s infinite alternate;
+}
+
+@keyframes bouncing-loader {
+  to {
+    transform: translateY(-3px);
+  }
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing-loader > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
