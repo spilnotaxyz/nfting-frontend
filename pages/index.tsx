@@ -1,13 +1,14 @@
-import { Typography, Button, Container } from '@mui/material'
+import { Typography, Button, Container, useTheme, Box } from '@mui/material'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Marquee from 'react-fast-marquee'
 import { Link } from '@components'
 
 const Home: NextPage = () => {
+  const theme = useTheme()
   return (
-    <>
-      <Container sx={{ p: 1 }}>
+    <Box p={1} display="flex" flexDirection="column" height="100%">
+      <Container>
         <Head>
           <title>spilnota.xyz</title>
           <meta
@@ -18,7 +19,6 @@ const Home: NextPage = () => {
         </Head>
 
         <Container
-          component="main"
           sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -42,26 +42,40 @@ const Home: NextPage = () => {
             <Button
               variant="contained"
               size="large"
-              sx={{ px: 7.5, py: 4.625, fontSize: 22, borderRadius: '20px' }}
+              sx={{
+                px: 7.5,
+                py: 4.625,
+                fontSize: 22,
+                borderRadius: '20px',
+                [theme.breakpoints.down('sm')]: {
+                  py: 3.125
+                }
+              }}
             >
               Make your own card
             </Button>
           </Link>
         </Container>
       </Container>
-      <Marquee gradient={false}>
+      <Box flexGrow={1} />
+      <Marquee gradient={false} speed={60}>
         <Typography
           variant="body1"
           component="p"
-          gutterBottom
           align="center"
           fontFamily="PPMondwest"
           fontSize={212}
+          sx={{
+            [theme.breakpoints.down('sm')]: {
+              fontSize: 100
+            }
+          }}
         >
           2023 Year NFTing 2023 Year NFTing 2023 Year NFTing 2023 Year NFTing
+          &nbsp;
         </Typography>
       </Marquee>
-    </>
+    </Box>
   )
 }
 

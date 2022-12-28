@@ -19,7 +19,14 @@ import { CacheProvider, EmotionCache } from '@emotion/react'
 import createEmotionCache from '@utils/createEmotionCache'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from '@theme'
-import { Box, Container, CssBaseline } from '@mui/material'
+import {
+  Box,
+  Container,
+  ContainerProps,
+  CssBaseline,
+  Hidden,
+  styled
+} from '@mui/material'
 import { Footer, Header } from '@components/layout'
 
 const { chains, provider, webSocketProvider } = configureChains(
@@ -52,6 +59,15 @@ interface MyAppProps extends AppProps<{ session: Session }> {
   emotionCache?: EmotionCache
 }
 
+const ThemeContainer = styled((props: ContainerProps) => (
+  <Container component="main" {...props} />
+))(({ theme }) => ({
+  [theme.breakpoints.down('sm')]: {
+    marginTop: 0,
+    flexGrow: 1
+  }
+}))
+
 function MyApp({
   Component,
   emotionCache = clientSideEmotionCache,
@@ -75,10 +91,16 @@ function MyApp({
                 <CssBaseline />
                 <Box display="flex" flexDirection="column" height="100%">
                   <Header />
-                  <Container sx={{ mt: 4 }} disableGutters maxWidth={false}>
+                  <ThemeContainer
+                    sx={{ mt: 4 }}
+                    disableGutters
+                    maxWidth={false}
+                  >
                     <Component {...pageProps} />
-                  </Container>
-                  <Box flexGrow={1} />
+                  </ThemeContainer>
+                  <Hidden smDown>
+                    <Box flexGrow={1} />
+                  </Hidden>
                   <Footer />
                 </Box>
               </ThemeProvider>

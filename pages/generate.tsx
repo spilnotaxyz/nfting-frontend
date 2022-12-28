@@ -9,11 +9,11 @@ import { NextPage } from 'next'
 
 const Generate: NextPage = () => {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ height: '100%' }}>
       <GenerateWizard
         steps={[
           {
-            title: 'Choose information you want see on the card',
+            title: 'Choose data you want to see on the card',
             shortTitle: 'Choose information',
             description: 'Choose information you want see on the card'
           },
