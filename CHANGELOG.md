@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.3.2...v1.4.0) (2022-12-28)
+
+
+### Features
+
+* finish loader mock ([41039d3](https://github.com/spilnota-xyz/eve-frontend/commit/41039d33b597479090394df7d573a605af07de2a))
+
 ## [1.3.2](https://github.com/spilnota-xyz/eve-frontend/compare/v1.3.1...v1.3.2) (2022-12-28)
 
 
