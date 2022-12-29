@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Box, Typography, styled } from '@mui/material'
+import { Box, Typography, styled, useTheme } from '@mui/material'
 import LinearProgress, {
   LinearProgressProps,
   linearProgressClasses
@@ -9,6 +9,7 @@ import BouncingDotsLoader from '../../ui/BouncingDotsLoader'
 function LinearProgressWithLabel(
   props: LinearProgressProps & { value: number }
 ) {
+  const theme = useTheme()
   return (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       <Box sx={{ width: '100%', mr: 1 }}>
@@ -25,9 +26,13 @@ function LinearProgressWithLabel(
       >
         <Typography
           variant="body2"
-          color="text.secondary.main"
           fontSize="1.4rem"
           fontFamily="Inter, sans-serif"
+          sx={{
+            [theme.breakpoints.down('sm')]: {
+              fontSize: '1rem'
+            }
+          }}
         >{`${Math.round(props.value)}%`}</Typography>
       </Box>
     </Box>
@@ -58,6 +63,8 @@ export const GenerateWizardCardGenerating = () => {
   const [progress, setProgress] = useState(10)
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
 
+  const theme = useTheme()
+
   useEffect(() => {
     const timerProgress = setInterval(() => {
       setProgress((prevProgress) =>
@@ -74,7 +81,15 @@ export const GenerateWizardCardGenerating = () => {
       clearInterval(timerPhrase)
     }
   }, [])
-
+  // sx={{
+  //   px: 7.5,
+  //   py: 4.625,
+  //   fontSize: 22,
+  //   borderRadius: '20px',
+  //   [theme.breakpoints.down('sm')]: {
+  //     py: 3.125
+  //   }
+  // }}
   return (
     <Box display="flex" alignItems="center" flexDirection="column">
       <Typography
@@ -85,6 +100,12 @@ export const GenerateWizardCardGenerating = () => {
         bgcolor="rgba(255, 255, 255, 0.1)"
         borderRadius="30px"
         border="1px solid rgba(255, 255, 255, 0.2)"
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '0.8rem',
+            marginBottom: '70%'
+          }
+        }}
       >
         {phrases[currentPhraseIndex]} <BouncingDotsLoader />
       </Typography>
