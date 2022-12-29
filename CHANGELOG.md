@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.5.0...v1.6.0) (2022-12-29)
+
+
+### Features
+
+* mvp ([db5a01c](https://github.com/spilnota-xyz/eve-frontend/commit/db5a01c849c7d6ce03d20156b9a7f38fea94846b))
+
+
+### Reverts
+
+* "feat: loader mobile | refactor: start header" ([3543f08](https://github.com/spilnota-xyz/eve-frontend/commit/3543f08111f81289aa393b08f42ad3f04cc5d0b1))
+
 # [1.5.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.4.0...v1.5.0) (2022-12-29)
 
 
