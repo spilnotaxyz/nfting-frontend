@@ -1,4 +1,6 @@
 import snow from './assets/snow.svg'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 
-export const Snow = () => <Image src={snow} alt="Snow" width="100%" />
+export const Snow = (props: Partial<ImageProps>) => (
+  <Image src={snow} alt="Snow" {...props} />
+)

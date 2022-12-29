@@ -76,15 +76,15 @@ const CollapsableStack = ({ ...rest }: BoxProps) => {
 }
 
 export type GenerateWizardChooseInformationStepState = Partial<{
-  numberOfMints: boolean
-  spentOnMints: boolean
-  totalNFTsBought: boolean
-  totalNFTsSold: boolean
-  totalSalesInETH: boolean
-  totalSpentInETH: boolean
-  biggestPurchaseInETH: boolean
-  biggestSaleInETH: boolean
-  top100OSNFTHolding: boolean
+  totalNFTsMinted: boolean
+  totalSpentOnMint: boolean
+  totalBought: boolean
+  totalSold: boolean
+  totalSoldInETH: boolean
+  totalBoughtInETH: boolean
+  biggestPurchase: boolean
+  biggestSale: boolean
+  bluechips: boolean
   avgHoldTime: boolean
 }>
 
@@ -112,13 +112,13 @@ export const GenerateWizardChooseInformationStep = () => {
             <DataBlock
               label="NFTs Minted"
               onSelect={(selected) =>
-                appendLocalState({ numberOfMints: selected })
+                appendLocalState({ totalNFTsMinted: selected })
               }
             />
             <DataBlock
               label="Spent on Mints (Ξ)"
               onSelect={(selected) =>
-                appendLocalState({ spentOnMints: selected })
+                appendLocalState({ totalSpentOnMint: selected })
               }
             />
           </CollapsableStack>
@@ -129,19 +129,19 @@ export const GenerateWizardChooseInformationStep = () => {
             <DataBlock
               label="NFTs Bought"
               onSelect={(selected) =>
-                appendLocalState({ totalNFTsBought: selected })
+                appendLocalState({ totalBought: selected })
               }
             />
             <DataBlock
               label="Total Spent (Ξ)"
               onSelect={(selected) =>
-                appendLocalState({ totalSpentInETH: selected })
+                appendLocalState({ totalBoughtInETH: selected })
               }
             />
             <DataBlock
               label="Biggest purchase (Ξ)"
               onSelect={(selected) =>
-                appendLocalState({ biggestPurchaseInETH: selected })
+                appendLocalState({ biggestPurchase: selected })
               }
             />
           </CollapsableStack>
@@ -151,20 +151,18 @@ export const GenerateWizardChooseInformationStep = () => {
           <CollapsableStack>
             <DataBlock
               label="NFTs Sold"
-              onSelect={(selected) =>
-                appendLocalState({ totalNFTsSold: selected })
-              }
+              onSelect={(selected) => appendLocalState({ totalSold: selected })}
             />
             <DataBlock
               label="Total Sales (Ξ)"
               onSelect={(selected) =>
-                appendLocalState({ totalSalesInETH: selected })
+                appendLocalState({ totalSoldInETH: selected })
               }
             />
             <DataBlock
               label="Biggest Sale (Ξ)"
               onSelect={(selected) =>
-                appendLocalState({ biggestSaleInETH: selected })
+                appendLocalState({ biggestSale: selected })
               }
             />
           </CollapsableStack>
@@ -186,10 +184,8 @@ export const GenerateWizardChooseInformationStep = () => {
           </Box>
           <CollapsableStack>
             <DataBlock
-              label="NFT Holdings"
-              onSelect={(selected) =>
-                appendLocalState({ top100OSNFTHolding: selected })
-              }
+              label="Bluechip NFTs"
+              onSelect={(selected) => appendLocalState({ bluechips: selected })}
             />
             <DataBlock
               label="Avg Hold Time"

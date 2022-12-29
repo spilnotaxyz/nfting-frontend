@@ -5,5 +5,11 @@ import {
 import { useContext } from 'react'
 
 export const useGenerateWizardContext = (): GenerateWizardContextType => {
-  return useContext(GenerateWizardContext)
+  const context = useContext(GenerateWizardContext)
+  if (!context) {
+    throw new Error(
+      'useGenerateWizardContext must be used within a GenerateWizardContext'
+    )
+  }
+  return context
 }

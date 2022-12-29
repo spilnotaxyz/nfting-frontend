@@ -19,7 +19,7 @@ jobs:
           persist-credentials: false
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install dependencies 📦
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Lint 🧹
         run: yarn lint
   release:
@@ -35,7 +35,7 @@ jobs:
           persist-credentials: false
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install dependencies 📦
-        run: yarn install --frozen-lockfile
+        run: yarn install 
       - name: Release 🪄🎁
         if: ${{ github.ref == 'refs/heads/main' }}
         run: yarn semantic-release

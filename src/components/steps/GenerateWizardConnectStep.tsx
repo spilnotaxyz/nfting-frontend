@@ -1,6 +1,8 @@
 import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
 import { Box, Button, Stack } from '@mui/material'
 import { ConnectTwitterButton, ConnectWalletButton } from '@components'
+import { useSession } from 'next-auth/react'
+import { useAccount } from 'wagmi'
 
 export type GenerateWizardConnectStepState = Partial<{
   connectedWallet: boolean
@@ -9,6 +11,8 @@ export type GenerateWizardConnectStepState = Partial<{
 
 export const GenerateWizardConnectStep = () => {
   const { next } = useGenerateWizardContext()
+  const account = useAccount()
+  const { data } = useSession()
   return (
     <>
       <Stack direction="column" spacing={2}>
@@ -21,7 +25,13 @@ export const GenerateWizardConnectStep = () => {
         size="large"
         variant="contained"
         fullWidth
-        disabled={!next}
+        disabled={
+          !next ||
+          !account.address ||
+          !data ||
+          !data.user.name ||
+          !data.user.image
+        }
         onClick={() => {
           next?.()
         }}

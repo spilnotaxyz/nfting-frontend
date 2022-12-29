@@ -12,9 +12,9 @@ import { Input } from '@ui/Input'
 import { useCallback, useState } from 'react'
 
 export type GenerateWizardFillInformationStepState = Partial<{
-  yourFavouriteNFTCommunity: string
-  makeAWish: string
-  whoBroughtYouHere: string
+  favouriteCommunity: string
+  wish: string
+  whoBroughtMeHere: string
 }>
 
 const Label = ({ children }: { children: string }) => {
@@ -60,9 +60,10 @@ export const GenerateWizardFillInformationStep = () => {
         >
           <Label>Your favorite NFT community</Label>
           <Input
-            placeholder="@BestNFTCommunityEver"
+            required
+            placeholder="https://twitter.com/spilnota"
             onChange={(e) =>
-              appendLocalState({ yourFavouriteNFTCommunity: e.target.value })
+              appendLocalState({ favouriteCommunity: e.target.value })
             }
           />
         </Box>
@@ -74,10 +75,11 @@ export const GenerateWizardFillInformationStep = () => {
         >
           <Label>Your 2023 wish</Label>
           <Input
+            required
             multiline
             minRows={3}
             placeholder="Type your wish"
-            onChange={(e) => appendLocalState({ makeAWish: e.target.value })}
+            onChange={(e) => appendLocalState({ wish: e.target.value })}
           />
         </Box>
         <Box
@@ -96,7 +98,7 @@ export const GenerateWizardFillInformationStep = () => {
             <Input
               placeholder="Type here"
               onChange={(e) =>
-                appendLocalState({ whoBroughtYouHere: e.target.value })
+                appendLocalState({ whoBroughtMeHere: e.target.value })
               }
             />
             <Typography variant="caption">
@@ -112,16 +114,12 @@ export const GenerateWizardFillInformationStep = () => {
         size="large"
         variant="contained"
         fullWidth
-        disabled={!next}
+        disabled={!next || !localState.wish || !localState.favouriteCommunity}
         onClick={() => {
           next?.(localState)
         }}
       >
-        {localState.makeAWish ||
-        localState.whoBroughtYouHere ||
-        localState.yourFavouriteNFTCommunity
-          ? 'Continue'
-          : 'Skip'}
+        Continue
       </Button>
     </>
   )
