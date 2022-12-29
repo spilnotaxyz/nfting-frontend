@@ -20,6 +20,8 @@
       "@utils": ["utils"],
       "@components/*": ["components/*"],
       "@components": ["components"],
+      "@constants/*": ["constants/*"],
+      "@constants": ["constants"],
       "@theme": ["theme"],
       "@ui/*": ["ui/*"],
       "@ui": ["ui"],

@@ -172,8 +172,9 @@ export const CardBody = ({
       <Box
         display="flex"
         alignItems="center"
+        pt={isMobile ? 2.5 : 3.125}
+        pb={isMobile ? 1.875 : 3.125}
         px={isMobile ? 2.5 : 3.75}
-        py={isMobile ? 2.5 : 3.125}
       >
         <Title mr={1} lineHeight={1} loading={loading}>
           2023 NFTing
@@ -225,7 +226,7 @@ export const CardBody = ({
                 fontFamily="NeueMachina"
                 fontSize={isMobile ? 14 : 18}
               >
-                {loading ? <Skeleton width={120} /> : username}
+                {loading ? <Skeleton width={120} /> : `@${username}`}
               </Typography>
               <LabelCaption mt={1.5}>
                 {loading ? <Skeleton width={120} /> : 'My favourite community'}
@@ -235,7 +236,7 @@ export const CardBody = ({
                 fontSize={12}
                 color="rgba(255, 255, 255, 0.8)"
               >
-                {loading ? <Skeleton width={120} /> : favouriteCommunity}
+                {loading ? <Skeleton width={120} /> : `@${favouriteCommunity}`}
               </Typography>
             </Box>
           </Box>

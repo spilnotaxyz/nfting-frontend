@@ -1,16 +1,20 @@
 import {
   GenerateWizard,
-  GenerateWizardChooseInformationStep,
-  GenerateWizardConnectStep,
-  GenerateWizardFillInformationStep
+  ChooseInformationStep,
+  ConnectStep,
+  FillInformationStep,
+  FollowNotice
 } from '@components'
-import { DummyStep } from '@components/steps/DummyStep'
-import { Container, styled, Typography } from '@mui/material'
+import { FinalButtonsGroup } from '@components/FinalButtonGroup'
+import { DummyStep } from '@components/steps/CardStep'
+import { Box, Container, styled, Typography } from '@mui/material'
 import { NextPage } from 'next'
 
 const Description = styled(Typography)(({ theme }) => ({
-  [theme.breakpoints.up('sm')]: {
-    mt: theme.spacing(1.25),
+  fontSize: 16,
+  marginTop: theme.spacing(2.5),
+  [theme.breakpoints.down('sm')]: {
+    marginTop: theme.spacing(2),
     fontSize: 11
   }
 }))
@@ -50,19 +54,19 @@ const Generate: NextPage = () => {
           {
             title: 'Generated Card',
             shortTitle: 'generated card',
-            noBack: true,
-            props: {
-              borderRadius: '40px',
-              borderWidth: 4,
-              boxShadow: 'inset 0px 0px 0px 4px rgba(255, 255, 255, 0.2)',
-              p: 'auto'
-            }
+            description: (
+              <>
+                <FinalButtonsGroup />
+                <Box flexGrow={1} />
+                <FollowNotice />
+              </>
+            )
           }
         ]}
       >
-        <GenerateWizardChooseInformationStep />
-        <GenerateWizardFillInformationStep />
-        <GenerateWizardConnectStep />
+        <ChooseInformationStep />
+        <FillInformationStep />
+        <ConnectStep />
         <DummyStep />
       </GenerateWizard>
     </Container>

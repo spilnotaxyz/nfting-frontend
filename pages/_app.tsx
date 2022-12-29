@@ -28,6 +28,7 @@ import {
   styled
 } from '@mui/material'
 import { Footer, Header } from '@components/layout'
+import { TwitterDataContextProvider } from '@hooks/useTwitterData'
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -87,23 +88,25 @@ function MyApp({
               })}
               chains={chains}
             >
-              <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Box display="flex" flexDirection="column" height="100%">
-                  <Header />
-                  <ThemeContainer
-                    sx={{ mt: 4 }}
-                    disableGutters
-                    maxWidth={false}
-                  >
-                    <Component {...pageProps} />
-                  </ThemeContainer>
-                  <Hidden smDown>
-                    <Box flexGrow={1} />
-                  </Hidden>
-                  <Footer />
-                </Box>
-              </ThemeProvider>
+              <TwitterDataContextProvider>
+                <ThemeProvider theme={theme}>
+                  <CssBaseline />
+                  <Box display="flex" flexDirection="column" height="100%">
+                    <Header />
+                    <ThemeContainer
+                      sx={{ mt: 4 }}
+                      disableGutters
+                      maxWidth={false}
+                    >
+                      <Component {...pageProps} />
+                    </ThemeContainer>
+                    <Hidden smDown>
+                      <Box flexGrow={1} />
+                    </Hidden>
+                    <Footer />
+                  </Box>
+                </ThemeProvider>
+              </TwitterDataContextProvider>
             </RainbowKitProvider>
           </RainbowKitSiweNextAuthProvider>
         </WagmiConfig>

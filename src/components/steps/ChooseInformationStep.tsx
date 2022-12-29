@@ -10,6 +10,7 @@ import {
   useTheme
 } from '@mui/material'
 import { useState, useCallback } from 'react'
+import { Card } from '@ui'
 
 const DataBlock = ({
   onSelect,
@@ -75,7 +76,7 @@ const CollapsableStack = ({ ...rest }: BoxProps) => {
   )
 }
 
-export type GenerateWizardChooseInformationStepState = Partial<{
+export type ChooseInformationStepState = Partial<{
   totalNFTsMinted: boolean
   totalSpentOnMint: boolean
   totalBought: boolean
@@ -88,11 +89,10 @@ export type GenerateWizardChooseInformationStepState = Partial<{
   avgHoldTime: boolean
 }>
 
-export const GenerateWizardChooseInformationStep = () => {
-  const { next } = useGenerateWizardContext()
+export const ChooseInformationStep = () => {
+  const { next, prev } = useGenerateWizardContext()
 
-  const [localState, setLocalState] =
-    useState<GenerateWizardChooseInformationStepState>({})
+  const [localState, setLocalState] = useState<ChooseInformationStepState>({})
 
   const appendLocalState = useCallback(
     (obj: Partial<typeof localState>) => {
@@ -104,7 +104,7 @@ export const GenerateWizardChooseInformationStep = () => {
   const [hovering, setHovering] = useState(false)
 
   return (
-    <>
+    <Card>
       <Stack spacing={2}>
         <Stack spacing={1}>
           <Typography variant="subtitle1">Mints</Typography>
@@ -197,18 +197,24 @@ export const GenerateWizardChooseInformationStep = () => {
         </Stack>
       </Stack>
       <Box flexGrow={1} />
-      <Button
-        sx={{ mt: 3 }}
-        size="large"
-        variant="contained"
-        fullWidth
-        disabled={!next}
-        onClick={() => {
-          next?.(localState)
-        }}
-      >
-        Continue
-      </Button>
-    </>
+      {next && (
+        <Button
+          sx={{ mt: 3 }}
+          size="large"
+          variant="contained"
+          fullWidth
+          onClick={() => {
+            next?.(localState)
+          }}
+        >
+          Continue
+        </Button>
+      )}
+      {prev && (
+        <Button onClick={prev} sx={{ mt: 2 }}>
+          ← Back
+        </Button>
+      )}
+    </Card>
   )
 }

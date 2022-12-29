@@ -11,7 +11,12 @@ import {
 export const FollowNotice = (props: BoxProps) => {
   const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
   return (
-    <Box display="flex" flexDirection="column" {...props}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      mt={isMobile ? 2.5 : 2}
+      {...props}
+    >
       <Typography fontFamily="NeueMachina" fontSize={isMobile ? 18 : 22}>
         Follow us to say thank you
       </Typography>

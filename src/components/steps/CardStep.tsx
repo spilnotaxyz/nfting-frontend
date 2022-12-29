@@ -1,15 +1,17 @@
-import { CardBody } from '@components/CardBody'
 import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
-import { useSession } from 'next-auth/react'
+import { useTwitterData } from '@hooks/useTwitterData'
 import { useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
+import { GRADIENTS } from '@constants/GRADIENTS'
+import { Card, CardBody } from '@ui'
+import { Theme, useMediaQuery } from '@mui/material'
 
 export const DummyStep = () => {
-  const { data } = useSession()
+  const { data } = useTwitterData()
 
   const { address } = useAccount()
 
-  const { state } = useGenerateWizardContext()
+  const { state, randomColorIndex } = useGenerateWizardContext()
 
   const [result, setResult] = useState()
   const [loading, setLoading] = useState(false)
@@ -40,17 +42,27 @@ export const DummyStep = () => {
     })()
   }, [address, state])
 
+  const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
+
   return (
-    <CardBody
-      username={data?.user.name}
-      image={data?.user.image}
-      favouriteCommunity={state.favouriteCommunity}
-      wish={state.wish}
-      whoBroughtMeHere={state.whoBroughtMeHere}
-      loading={
-        !data || !data.user.name || !data.user.image || !result || loading
-      }
-      {...(result ?? {})}
-    />
+    <Card
+      sx={{
+        background: GRADIENTS[randomColorIndex],
+        borderRadius: isMobile ? '30px' : '40px',
+        borderWidth: 4,
+        boxShadow: 'inset 0px 0px 0px 4px rgba(255, 255, 255, 0.2)',
+        p: "'auto' !important"
+      }}
+    >
+      <CardBody
+        username={data?.name}
+        image={data?.image}
+        favouriteCommunity={state.favouriteCommunity}
+        wish={state.wish}
+        whoBroughtMeHere={state.whoBroughtMeHere}
+        loading={!data || !data.name || !data.image || !result || loading}
+        {...(result ?? {})}
+      />
+    </Card>
   )
 }

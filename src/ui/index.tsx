@@ -1,4 +1,4 @@
 export * from './branding'
 export * from './icons'
-export * from './BlurredPaper'
+export * from './card'
 export * from './Input'

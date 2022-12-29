@@ -8,10 +8,10 @@ import {
   useMediaQuery,
   useTheme
 } from '@mui/material'
-import { Input } from '@ui/Input'
+import { Card, Input } from '@ui'
 import { useCallback, useState } from 'react'
 
-export type GenerateWizardFillInformationStepState = Partial<{
+export type FillInformationStepState = Partial<{
   favouriteCommunity: string
   wish: string
   whoBroughtMeHere: string
@@ -34,11 +34,10 @@ const Label = ({ children }: { children: string }) => {
   )
 }
 
-export const GenerateWizardFillInformationStep = () => {
-  const { next } = useGenerateWizardContext()
+export const FillInformationStep = () => {
+  const { next, prev } = useGenerateWizardContext()
 
-  const [localState, setLocalState] =
-    useState<GenerateWizardFillInformationStepState>({})
+  const [localState, setLocalState] = useState<FillInformationStepState>({})
 
   const appendLocalState = useCallback(
     (obj: Partial<typeof localState>) => {
@@ -50,7 +49,7 @@ export const GenerateWizardFillInformationStep = () => {
   const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
 
   return (
-    <>
+    <Card>
       <Stack direction="column" spacing={2}>
         <Box
           display="flex"
@@ -61,9 +60,14 @@ export const GenerateWizardFillInformationStep = () => {
           <Label>Your favorite NFT community</Label>
           <Input
             required
-            placeholder="https://twitter.com/spilnota"
+            placeholder="@spilnotaxyz"
             onChange={(e) =>
-              appendLocalState({ favouriteCommunity: e.target.value })
+              appendLocalState({
+                favouriteCommunity: e.target.value
+                  .replace('https://twitter.com/', '')
+                  .replace('@', '')
+                  .replace('twitter.com/', '')
+              })
             }
           />
         </Box>
@@ -109,18 +113,25 @@ export const GenerateWizardFillInformationStep = () => {
         </Box>
       </Stack>
       <Box flexGrow={1} />
-      <Button
-        sx={{ mt: 3 }}
-        size="large"
-        variant="contained"
-        fullWidth
-        disabled={!next || !localState.wish || !localState.favouriteCommunity}
-        onClick={() => {
-          next?.(localState)
-        }}
-      >
-        Continue
-      </Button>
-    </>
+      {next && (
+        <Button
+          sx={{ mt: 3 }}
+          size="large"
+          variant="contained"
+          fullWidth
+          disabled={!next || !localState.wish || !localState.favouriteCommunity}
+          onClick={() => {
+            next?.(localState)
+          }}
+        >
+          Continue
+        </Button>
+      )}
+      {prev && (
+        <Button onClick={prev} sx={{ mt: 2 }}>
+          ← Back
+        </Button>
+      )}
+    </Card>
   )
 }

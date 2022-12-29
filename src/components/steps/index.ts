@@ -1,3 +1,3 @@
-export * from './GenerateWizardChooseInformationStep'
-export * from './GenerateWizardFillInformationStep'
-export * from './GenerateWizardConnectStep'
+export * from './ChooseInformationStep'
+export * from './FillInformationStep'
+export * from './ConnectStep'
