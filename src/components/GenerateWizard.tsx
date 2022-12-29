@@ -259,7 +259,6 @@ export const GenerateWizard = ({
             <Box
               height="100%"
               display="flex"
-              justifyContent="space-between"
               flexGrow="1"
               flexDirection="column"
               p={5}
