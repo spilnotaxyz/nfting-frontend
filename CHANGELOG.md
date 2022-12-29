@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.4.0...v1.5.0) (2022-12-29)
+
+
+### Bug Fixes
+
+* fixed percentage position | add dynamic phrase changing with dot loading ([077190b](https://github.com/spilnota-xyz/eve-frontend/commit/077190bf0c3bb7113b7eb5b82c2c578c41bf1091))
+
+
+### Features
+
+* loader mobile | refactor: start header ([3691285](https://github.com/spilnota-xyz/eve-frontend/commit/3691285a8d4fe4346de4a2ec7ab51550bf1f585b))
+
 # [1.4.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.3.2...v1.4.0) (2022-12-28)
 
 
