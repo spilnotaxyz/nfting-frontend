@@ -79,14 +79,45 @@ function MyApp({
     <>
       <Head>
         <link rel="shortcut icon" href="/favicon.svg" />
-        <meta name="twitter:creator" content="@spilnotaxyz" />
-        <meta name="twitter:site" content="@spilnotaxyz" />
-        <meta name="og:title" content="spilnota.xyz" />
+        <title>Create your 2023 Spilnota Card | spilnota.xyz</title>
         <meta
-          name="og:description"
+          name="title"
+          content="Create your 2023 Spilnota Card | spilnota.xyz"
+        />
+        <meta
+          name="description"
           content="Celebrate NY Eve with Spilnota! Get your Spilnota Card and share love with the web3 community!"
         />
-        <meta name="og:image" content="https://spilnota.xyz/meta_image.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://spilnota.xyz/" />
+        <meta
+          property="og:title"
+          content="Create your 2023 Spilnota Card | spilnota.xyz"
+        />
+        <meta
+          property="og:description"
+          content="Celebrate NY Eve with Spilnota! Get your Spilnota Card and share love with the web3 community!"
+        />
+        <meta
+          property="og:image"
+          content="https://spilnota.xyz/meta_image.png"
+        />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://spilnota.xyz/" />
+        <meta
+          property="twitter:title"
+          content="Create your 2023 Spilnota Card | spilnota.xyz"
+        />
+        <meta
+          property="twitter:description"
+          content="Celebrate NY Eve with Spilnota! Get your Spilnota Card and share love with the web3 community!"
+        />
+        <meta
+          property="twitter:image"
+          content="https://spilnota.xyz/meta_image.png"
+        />
+        <meta name="twitter:creator" content="@spilnotaxyz" />
+        <meta name="twitter:site" content="@spilnotaxyz" />
       </Head>
       <SessionProvider refetchInterval={0} session={pageProps.session}>
         <CacheProvider value={emotionCache}>
