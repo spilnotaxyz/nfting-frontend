@@ -44,7 +44,8 @@ export const Header = () => {
                   padding: '8px 10px'
                 }
               }}
-              href="/about"
+              href="https://spilnota.notion.site/Introduction-to-Spilnota-4108c9f28b3741ebb46fc1308f3fcb87"
+              target="_blank"
             >
               About
             </Link>

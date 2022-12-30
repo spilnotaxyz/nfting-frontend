@@ -138,7 +138,9 @@ function MyApp({
                     <Box display="flex" flexDirection="column" height="100%">
                       <Header />
                       <ThemeContainer
-                        sx={{ mt: 4 }}
+                        sx={{
+                          mt: 4
+                        }}
                         disableGutters
                         maxWidth={false}
                       >

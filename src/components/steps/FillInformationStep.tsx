@@ -56,7 +56,7 @@ export const FillInformationStep = () => {
           display="flex"
           justifyContent="space-between"
           flexWrap={isMobile ? 'wrap' : 'nowrap'}
-          alignItems="flex-start"
+          alignItems="center"
         >
           <Label>Your favorite NFT community*</Label>
           <TextField
@@ -80,7 +80,7 @@ export const FillInformationStep = () => {
           display="flex"
           justifyContent="space-between"
           flexWrap={isMobile ? 'wrap' : 'nowrap'}
-          alignItems="flex-start"
+          alignItems="center"
         >
           <Label>Your 2023 wish*</Label>
           <TextField
@@ -101,7 +101,7 @@ export const FillInformationStep = () => {
           display="flex"
           justifyContent="space-between"
           flexWrap={isMobile ? 'wrap' : 'nowrap'}
-          alignItems="flex-start"
+          alignItems="center"
         >
           <Label>Who brought you in the Web3 space?</Label>
           <Box

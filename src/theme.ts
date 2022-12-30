@@ -68,7 +68,10 @@ const theme = createTheme({
         body: {
           backgroundImage: 'url(/background.svg)',
           backgroundSize: 'cover',
-          backgroundAttachment: 'fixed'
+          backgroundAttachment: 'fixed',
+          [ref.breakpoints.down('sm')]: {
+            backgroundImage: 'url(/background-mobile.svg)'
+          }
         }
       }
     },
