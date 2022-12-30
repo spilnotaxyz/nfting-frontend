@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.15.1...v1.16.0) (2022-12-30)
+
+
+### Features
+
+* add mobile refresh notice ([7a5cf37](https://github.com/spilnota-xyz/eve-frontend/commit/7a5cf379fb49cf5483d4f603bd17113a3e40e9a5))
+
 ## [1.15.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.15.0...v1.15.1) (2022-12-30)
 
 
