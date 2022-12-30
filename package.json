@@ -11,8 +11,11 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mdx-js/loader": "^2.2.1",
+    "@mdx-js/react": "^2.2.1",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.1",
+    "@next/mdx": "^13.1.1",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "@rainbow-me/rainbowkit-siwe-next-auth": "^0.1.5",
     "add": "^2.0.6",
