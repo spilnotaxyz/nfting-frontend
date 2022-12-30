@@ -18,6 +18,7 @@ import { StepLabel } from '@ui/StepLabel'
 import { StepIndicator } from '@ui/StepIndicator'
 import { randomExluding, random } from '@utils'
 import { useTwitterData } from '@hooks/useTwitterData'
+import { CardDataProvider } from '@hooks/useCardData'
 
 export type GenerateWizardState = ChooseInformationStepState &
   FillInformationStepState &
@@ -95,65 +96,71 @@ export const GenerateWizard = ({
         }
       }}
     >
-      <Grid container spacing={isMobile ? 1 : 2} sx={{ height: '100%' }}>
-        <Grid xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Stepper activeStep={step}>
-            {steps.map(({ shortTitle }, i) => (
-              <Step key={i}>
-                <StepLabel
-                  icon={Number(i + 1)
-                    .toString()
-                    .padStart(2, '0')}
-                >
-                  {!isMobile && shortTitle}
-                </StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-          <Box
-            display="flex"
-            mt={4}
-            flexGrow={isMobile ? 'unset' : 1}
-            sx={{
-              [theme.breakpoints.down('sm')]: {
-                mt: 2.5
-              }
-            }}
+      <CardDataProvider>
+        <Grid container spacing={isMobile ? 1 : 2} sx={{ height: '100%' }}>
+          <Grid
+            xs={12}
+            md={6}
+            sx={{ display: 'flex', flexDirection: 'column' }}
           >
-            <StepIndicator step={step} />
+            <Stepper activeStep={step}>
+              {steps.map(({ shortTitle }, i) => (
+                <Step key={i}>
+                  <StepLabel
+                    icon={Number(i + 1)
+                      .toString()
+                      .padStart(2, '0')}
+                  >
+                    {!isMobile && shortTitle}
+                  </StepLabel>
+                </Step>
+              ))}
+            </Stepper>
             <Box
               display="flex"
-              flexDirection="column"
+              mt={4}
               flexGrow={isMobile ? 'unset' : 1}
+              sx={{
+                [theme.breakpoints.down('sm')]: {
+                  mt: 2.5
+                }
+              }}
             >
-              <Typography
-                variant="h1"
-                sx={{
-                  lineHeight: '110%',
-                  fontWeight: 500,
-                  maxWidth: 536,
-                  [theme.breakpoints.down('sm')]: {
-                    fontSize: 24
-                  }
-                }}
+              <StepIndicator step={step} />
+              <Box
+                display="flex"
+                flexDirection="column"
+                flexGrow={isMobile ? 'unset' : 1}
               >
-                {steps[step].title}
-              </Typography>
-              <Hidden smDown>{steps[step].description}</Hidden>
+                <Typography
+                  variant="h1"
+                  sx={{
+                    lineHeight: '110%',
+                    fontWeight: 500,
+                    maxWidth: 536,
+                    [theme.breakpoints.down('sm')]: {
+                      fontSize: 24
+                    }
+                  }}
+                >
+                  {steps[step].title}
+                </Typography>
+                <Hidden smDown>{steps[step].description}</Hidden>
+              </Box>
             </Box>
-          </Box>
+          </Grid>
+          <Grid xs={12} md={6}>
+            {Children.map(children, (child, i) => {
+              if (i === step) {
+                return child
+              }
+            })}
+          </Grid>
+          <Hidden smUp>
+            <Grid xs={12}>{steps[step].description}</Grid>
+          </Hidden>
         </Grid>
-        <Grid xs={12} md={6}>
-          {Children.map(children, (child, i) => {
-            if (i === step) {
-              return child
-            }
-          })}
-        </Grid>
-        <Hidden smUp>
-          <Grid xs={12}>{steps[step].description}</Grid>
-        </Hidden>
-      </Grid>
+      </CardDataProvider>
     </GenerateWizardContext.Provider>
   )
 }

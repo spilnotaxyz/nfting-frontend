@@ -25,9 +25,7 @@ export const ConnectTwitterInput = (props: TextFieldProps) => {
     setIsLoading(true)
     setIsError(false)
     try {
-      const response = await fetch(
-        `https://api.eve.spilnota.xyz/twitter/${handle}`
-      )
+      const response = await fetch(`/api/twitter/${handle}`)
       if (!response.ok) return setIsError(true)
 
       const result = await response.json()
