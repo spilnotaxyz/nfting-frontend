@@ -1,6 +1,20 @@
 # [1.15.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.14.2...v1.15.0) (2022-12-30)
 
 
+### Bug Fixes
+
+* apply other fixes ([2cc717c](https://github.com/spilnota-xyz/eve-frontend/commit/2cc717c8ee96f2badf711e03576a3bc4fda9989e))
+* fonts and background ([5c077a6](https://github.com/spilnota-xyz/eve-frontend/commit/5c077a6011a26df7496b02cadd885ae332fcd686))
+* missing fonts, and small changes ([d5792c6](https://github.com/spilnota-xyz/eve-frontend/commit/d5792c6394eb46d370a1edec578097495578193b))
+
+
+### Features
+
+* other features ([ce1bf4c](https://github.com/spilnota-xyz/eve-frontend/commit/ce1bf4cc0ba687687e499702b8eb7b61bb6e422e))
+
+# [1.15.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.14.2...v1.15.0) (2022-12-30)
+
+
 ### Features
 
 * other features ([e167b16](https://github.com/spilnota-xyz/eve-frontend/commit/e167b16f02391b59ca0b9e3b79add666440f41f2))
