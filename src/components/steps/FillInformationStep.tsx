@@ -56,46 +56,52 @@ export const FillInformationStep = () => {
           display="flex"
           justifyContent="space-between"
           flexWrap={isMobile ? 'wrap' : 'nowrap'}
-          alignItems="center"
+          alignItems="flex-start"
         >
-          <Label>Your favorite NFT community</Label>
+          <Label>Your favorite NFT community*</Label>
           <TextField
+            fullWidth={isMobile}
             defaultValue={localState.favouriteCommunity}
             variant="outlined"
             required
-            placeholder="@spilnotaxyz"
-            onChange={(e) =>
+            placeholder="https://twitter.com/youracountname"
+            onChange={(e) => {
               appendLocalState({
                 favouriteCommunity: e.target.value
                   .replace('https://twitter.com/', '')
                   .replace('@', '')
                   .replace('twitter.com/', '')
               })
-            }
+              e.target.value = e.target.value.slice(0, 100)
+            }}
           />
         </Box>
         <Box
           display="flex"
           justifyContent="space-between"
           flexWrap={isMobile ? 'wrap' : 'nowrap'}
-          alignItems="center"
+          alignItems="flex-start"
         >
-          <Label>Your 2023 wish</Label>
+          <Label>Your 2023 wish*</Label>
           <TextField
+            fullWidth={isMobile}
             defaultValue={localState.wish}
             variant="outlined"
             required
             multiline
             minRows={3}
             placeholder="Type your wish"
-            onChange={(e) => appendLocalState({ wish: e.target.value })}
+            onChange={(e) => {
+              appendLocalState({ wish: e.target.value })
+              e.target.value = e.target.value.slice(0, 280)
+            }}
           />
         </Box>
         <Box
           display="flex"
           justifyContent="space-between"
           flexWrap={isMobile ? 'wrap' : 'nowrap'}
-          alignItems="center"
+          alignItems="flex-start"
         >
           <Label>Who brought you in the Web3 space?</Label>
           <Box
@@ -105,14 +111,16 @@ export const FillInformationStep = () => {
             width={isMobile ? '100%' : 'min-content'}
           >
             <TextField
+              fullWidth={isMobile}
               defaultValue={localState.whoBroughtMeHere}
               variant="outlined"
               placeholder="Type here"
-              onChange={(e) =>
+              onChange={(e) => {
                 appendLocalState({ whoBroughtMeHere: e.target.value })
-              }
+                e.target.value = e.target.value.slice(0, 100)
+              }}
             />
-            <Typography variant="caption">
+            <Typography variant="caption" mt={1}>
               DM him/her and share what for, we are sure they will be glad to
               hear.
             </Typography>
@@ -131,12 +139,12 @@ export const FillInformationStep = () => {
             next?.(localState)
           }}
         >
-          Continue
+          Continue to crypto wallet
         </Button>
       )}
       {prev && (
         <Button onClick={prev} sx={{ mt: 2 }}>
-          ← Back
+          ← Back to choose info
         </Button>
       )}
     </Card>

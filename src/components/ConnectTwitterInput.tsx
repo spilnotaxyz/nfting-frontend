@@ -25,7 +25,7 @@ export const ConnectTwitterInput = (props: TextFieldProps) => {
     setIsLoading(true)
     setIsError(false)
     try {
-      const response = await fetch(`/api/twitter/${handle}`)
+      const response = await fetch(`/backend/twitter/${handle}`)
       if (!response.ok) return setIsError(true)
 
       const result = await response.json()
@@ -47,12 +47,13 @@ export const ConnectTwitterInput = (props: TextFieldProps) => {
         display="flex"
         justifyContent="space-between"
         flexWrap={isMobile ? 'wrap' : 'nowrap'}
-        alignItems="center"
+        alignItems="flex-start"
       >
         <Typography variant="body1" color="white">
           Please add your Twitter handle
         </Typography>
         <TextField
+          fullWidth={isMobile}
           variant="outlined"
           required
           placeholder="@me"

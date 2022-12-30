@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import '@rainbow-me/rainbowkit/styles.css'
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import {
   RainbowKitProvider,
   getDefaultWallets,
@@ -75,43 +76,48 @@ function MyApp({
   pageProps
 }: MyAppProps) {
   return (
-    <SessionProvider refetchInterval={0} session={pageProps.session}>
-      <CacheProvider value={emotionCache}>
-        <WagmiConfig client={wagmiClient}>
-          <RainbowKitSiweNextAuthProvider
-            getSiweMessageOptions={getSiweMessageOptions}
-          >
-            <RainbowKitProvider
-              theme={darkTheme({
-                accentColor: theme.palette.primary.main,
-                accentColorForeground: '#000'
-              })}
-              chains={chains}
+    <>
+      <Head>
+        <link rel="shortcut icon" href="/favicon.svg" />
+      </Head>
+      <SessionProvider refetchInterval={0} session={pageProps.session}>
+        <CacheProvider value={emotionCache}>
+          <WagmiConfig client={wagmiClient}>
+            <RainbowKitSiweNextAuthProvider
+              getSiweMessageOptions={getSiweMessageOptions}
             >
-              <TwitterDataContextProvider>
-                <ThemeProvider theme={theme}>
-                  <CssBaseline />
-                  <Box display="flex" flexDirection="column" height="100%">
-                    <Header />
-                    <ThemeContainer
-                      sx={{ mt: 4 }}
-                      disableGutters
-                      maxWidth={false}
-                    >
-                      <Component {...pageProps} />
-                    </ThemeContainer>
-                    <Hidden smDown>
-                      <Box flexGrow={1} />
-                    </Hidden>
-                    <Footer />
-                  </Box>
-                </ThemeProvider>
-              </TwitterDataContextProvider>
-            </RainbowKitProvider>
-          </RainbowKitSiweNextAuthProvider>
-        </WagmiConfig>
-      </CacheProvider>
-    </SessionProvider>
+              <RainbowKitProvider
+                theme={darkTheme({
+                  accentColor: theme.palette.primary.main,
+                  accentColorForeground: '#000'
+                })}
+                chains={chains}
+              >
+                <TwitterDataContextProvider>
+                  <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <Box display="flex" flexDirection="column" height="100%">
+                      <Header />
+                      <ThemeContainer
+                        sx={{ mt: 4 }}
+                        disableGutters
+                        maxWidth={false}
+                      >
+                        <Component {...pageProps} />
+                      </ThemeContainer>
+                      <Hidden smDown>
+                        <Box flexGrow={1} />
+                      </Hidden>
+                      <Footer />
+                    </Box>
+                  </ThemeProvider>
+                </TwitterDataContextProvider>
+              </RainbowKitProvider>
+            </RainbowKitSiweNextAuthProvider>
+          </WagmiConfig>
+        </CacheProvider>
+      </SessionProvider>
+    </>
   )
 }
 

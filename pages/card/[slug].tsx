@@ -13,7 +13,7 @@ export const CardPage: NextPage = () => {
   useEffect(() => {
     ;(async () => {
       if (query.slug)
-        setCardProps(await (await fetch('/api/card/' + query.slug)).json())
+        setCardProps(await (await fetch('/backend/card/' + query.slug)).json())
     })()
   }, [query.slug])
   // use media query

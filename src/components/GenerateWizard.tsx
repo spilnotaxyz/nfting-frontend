@@ -145,7 +145,12 @@ export const GenerateWizard = ({
                 >
                   {steps[step].title}
                 </Typography>
-                <Hidden smDown>{steps[step].description}</Hidden>
+                {/* in progress */}
+                {isMobile ? (
+                  <Hidden smUp>{steps[step].description}</Hidden>
+                ) : (
+                  <Hidden smDown>{steps[step].description}</Hidden>
+                )}
               </Box>
             </Box>
           </Grid>
@@ -156,9 +161,14 @@ export const GenerateWizard = ({
               }
             })}
           </Grid>
-          <Hidden smUp>
-            <Grid xs={12}>{steps[step].description}</Grid>
-          </Hidden>
+          {/* in progress */}
+          {step === steps.length - 1 ? (
+            <Hidden smUp>
+              <Grid xs={12}>{steps[step].description}</Grid>
+            </Hidden>
+          ) : (
+            ''
+          )}
         </Grid>
       </CardDataProvider>
     </GenerateWizardContext.Provider>

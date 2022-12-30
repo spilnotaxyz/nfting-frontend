@@ -52,8 +52,8 @@ const Generate: NextPage = () => {
             )
           },
           {
-            title: 'Generated Card',
-            shortTitle: 'generated card',
+            title: ' Generate your card',
+            shortTitle: 'Generate your card',
             description: (
               <>
                 <FinalButtonsGroup />
