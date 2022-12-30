@@ -45,7 +45,7 @@ export const ConnectWalletButton = (props: ButtonProps) => {
                   {account.ensName ?? formatAddress(account.address)}
                 </>
               ) : account && authenticationStatus === 'unauthenticated' ? (
-                'Sign SIWE Message'
+                'Sign Message'
               ) : (
                 'Connect Wallet'
               )}

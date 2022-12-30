@@ -18,7 +18,7 @@ export type FillInformationStepState = Partial<{
   whoBroughtMeHere: string
 }>
 
-const Label = ({ children }: { children: string }) => {
+const Label = (props: TypographyProps) => {
   const theme = useTheme()
   return (
     <Typography
@@ -29,9 +29,8 @@ const Label = ({ children }: { children: string }) => {
           mb: 1.25
         }
       }}
-    >
-      {children}
-    </Typography>
+      {...props}
+    />
   )
 }
 
@@ -103,7 +102,7 @@ export const FillInformationStep = () => {
           flexWrap={isMobile ? 'wrap' : 'nowrap'}
           alignItems="center"
         >
-          <Label>Who brought you in the Web3 space?</Label>
+          <Label alignSelf="baseline">Who brought you in the Web3 space?</Label>
           <Box
             display="flex"
             flexDirection="column"

@@ -4,6 +4,7 @@ import {
   Container,
   useTheme,
   Box,
+  Unstable_Grid2 as Grid,
   Hidden,
   BoxProps,
   TypographyProps
@@ -16,7 +17,7 @@ import Image from 'next/image'
 const RunningText = (props: BoxProps) => {
   const theme = useTheme()
   return (
-    <Box {...props}>
+    <Box zIndex={-1} {...props}>
       <Marquee gradient={false} speed={60}>
         <Typography
           variant="body1"
@@ -103,21 +104,24 @@ const Home: NextPage = () => {
           </Container>
         </Hidden>
         <Hidden smDown>
-          <MainText align="left" />
+          <Grid container spacing={2}>
+            <Grid xs={6}>
+              <MainText align="left" />
+            </Grid>
+            <Grid display="flex" justifyContent="flex-end" xs={6}>
+              <Image
+                src="/example.png"
+                alt="Examples"
+                width={359}
+                height={334}
+              />
+            </Grid>
+          </Grid>
         </Hidden>
       </Container>
       <Box flexGrow={1} />
       <Hidden smDown>
-        <Container maxWidth="xl">
-          <Box display="flex" justifyContent="center" mb={2} mt={2}>
-            <Image
-              src="/examples.png"
-              alt="Examples"
-              width={808}
-              height={532}
-            />
-          </Box>
-
+        <Container sx={{ mt: 2 }} maxWidth="xl">
           <Generate fullWidth />
         </Container>
       </Hidden>

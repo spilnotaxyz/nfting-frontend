@@ -52,7 +52,8 @@ const wagmiClient = createClient({
 })
 
 const getSiweMessageOptions: GetSiweMessageOptions = () => ({
-  statement: 'Sign in to the RainbowKit + SIWE example app'
+  statement:
+    'Sign in to Spilnota NY Eve App. We will never share your data with anyone else. For more information, please read our Privacy Policy.'
 })
 
 const clientSideEmotionCache = createEmotionCache()
