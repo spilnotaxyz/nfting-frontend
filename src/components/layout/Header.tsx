@@ -35,7 +35,7 @@ export const Header = () => {
               sx={{
                 color: '#000',
                 bgcolor: '#F6FFD3',
-                padding: '20px 30px',
+                padding: '18px 20px',
                 borderRadius: 40,
                 fontFamily: 'NeueMachina',
                 fontSize: '1.2rem',

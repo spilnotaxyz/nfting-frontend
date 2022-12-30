@@ -14,7 +14,8 @@ const Description = styled(Typography)(({ theme }) => ({
   fontSize: 16,
   marginTop: theme.spacing(2.5),
   [theme.breakpoints.down('sm')]: {
-    marginTop: theme.spacing(2),
+    marginTop: 0,
+    marginBottom: theme.spacing(3),
     fontSize: 11
   }
 }))
@@ -27,16 +28,16 @@ const Generate: NextPage = () => {
           {
             title: 'Choose data you want to see on the card',
             shortTitle: 'Choose information',
-            description: (
+            descriptionTop: (
               <Description>
                 Choose information you want see on the card
               </Description>
             )
           },
           {
-            title: 'Add information you want see on the card (Optional)',
+            title: 'Add information you want see on the card',
             shortTitle: 'Add information',
-            description: (
+            descriptionTop: (
               <Description>
                 Add information you want see on the card
               </Description>
@@ -45,16 +46,16 @@ const Generate: NextPage = () => {
           {
             title: 'Connect accounts',
             shortTitle: 'Connect accounts',
-            description: (
+            descriptionTop: (
               <Description>
-                Fill information you want see on the card
+                Connect your wallet and twitter to generate your card
               </Description>
             )
           },
           {
-            title: ' Generate your card',
+            title: 'Generate your card',
             shortTitle: 'Generate your card',
-            description: (
+            descriptionBottom: (
               <>
                 <FinalButtonsGroup />
                 <Box flexGrow={1} />
