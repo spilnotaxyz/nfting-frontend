@@ -44,7 +44,8 @@ export const GenerateWizard = ({
   steps: {
     title: string
     shortTitle: string
-    description?: ReactNode
+    descriptionTop?: ReactNode
+    descriptionBottom?: ReactNode
   }[]
 }>) => {
   const [step, setStep] = useLocalStorage('wizard-step', 0)
@@ -146,14 +147,21 @@ export const GenerateWizard = ({
                   {steps[step].title}
                 </Typography>
                 {/* in progress */}
-                {isMobile ? (
-                  <Hidden smUp>{steps[step].description}</Hidden>
-                ) : (
-                  <Hidden smDown>{steps[step].description}</Hidden>
+                {(steps[step].descriptionBottom ||
+                  steps[step].descriptionTop) && (
+                  <Hidden smDown>
+                    {steps[step].descriptionBottom ??
+                      steps[step].descriptionTop}
+                  </Hidden>
                 )}
               </Box>
             </Box>
           </Grid>
+          {steps[step].descriptionTop && (
+            <Hidden smUp>
+              <Grid xs={12}>{steps[step].descriptionTop}</Grid>
+            </Hidden>
+          )}
           <Grid xs={12} md={6}>
             {Children.map(children, (child, i) => {
               if (i === step) {
@@ -161,13 +169,10 @@ export const GenerateWizard = ({
               }
             })}
           </Grid>
-          {/* in progress */}
-          {step === steps.length - 1 ? (
+          {steps[step].descriptionBottom && (
             <Hidden smUp>
-              <Grid xs={12}>{steps[step].description}</Grid>
+              <Grid xs={12}>{steps[step].descriptionBottom}</Grid>
             </Hidden>
-          ) : (
-            ''
           )}
         </Grid>
       </CardDataProvider>
