@@ -43,6 +43,11 @@ const Generate = ({ fullWidth }: { fullWidth?: boolean }) => {
   const theme = useTheme()
   return (
     <Link
+      onClick={() => {
+        localStorage.removeItem('wizard-state')
+        localStorage.removeItem('wizard-step')
+        localStorage.removeItem('random-color-index')
+      }}
       href="/generate"
       sx={{
         '&:hover': { textDecoration: 'none !important' },

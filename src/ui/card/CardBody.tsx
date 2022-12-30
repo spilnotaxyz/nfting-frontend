@@ -86,7 +86,7 @@ const DataBlock = ({
     <Stack flexGrow={1} spacing={isMobile ? 1.875 : 2.5} {...props}>
       <LabelCaption>{header}</LabelCaption>
       <Stack justifyContent="space-between" direction="row" spacing={1}>
-        <Stack spacing={1.875}>
+        <Stack spacing={1.875} justifyContent="space-between">
           {loading
             ? new Array(3)
                 .fill(0)
@@ -95,7 +95,7 @@ const DataBlock = ({
                 <Label key={i}>{label}</Label>
               ))}
         </Stack>
-        <Stack spacing={1.875}>
+        <Stack spacing={1.875} justifyContent="space-between">
           {loading
             ? new Array(3)
                 .fill(0)

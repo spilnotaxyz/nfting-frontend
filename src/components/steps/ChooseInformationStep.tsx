@@ -6,6 +6,7 @@ import {
   Button,
   Chip,
   Stack,
+  Tooltip,
   Typography,
   useTheme
 } from '@mui/material'
@@ -187,14 +188,12 @@ export const ChooseInformationStep = () => {
               width="min-content"
               display="flex"
               alignItems="center"
-              onClick={() => setHovering((prevState) => !prevState)}
               height="32px"
             >
               Holds
-              <Info color="secondary" sx={{ ml: 1, cursor: 'pointer' }} />
-              {hovering && (
-                <Chip label="FP > 1Ξ, Volume 30Ξ last 30 days" sx={{ ml: 1 }} />
-              )}
+              <Tooltip title="Bluechip FP > 1Ξ | AVG > 0.2Ξ" placement="right">
+                <Info color="secondary" sx={{ ml: 1, cursor: 'pointer' }} />
+              </Tooltip>
             </Typography>
           </Box>
           <CollapsableStack>
