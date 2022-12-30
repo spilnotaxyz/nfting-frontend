@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.11.0...v1.12.0) (2022-12-30)
+
+
+### Features
+
+* add twitter meta tags ([29ab939](https://github.com/spilnota-xyz/eve-frontend/commit/29ab9393bd944b961aae79ffd2f637d0ac7933ab))
+
 # [1.11.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.10.0...v1.11.0) (2022-12-30)
 
 
