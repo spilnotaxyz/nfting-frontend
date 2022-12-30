@@ -240,7 +240,7 @@ export const CardBody = ({
               </Typography>
             </Box>
           </Box>
-          <Stack spacing={isMobile ? 0.625 : 1}>
+          <Stack spacing={isMobile ? 0.625 : 1} width="100%">
             {loading ? (
               <Skeleton
                 width={isMobile ? 'auto' : 340}

@@ -17,6 +17,7 @@ import { Stepper } from '@ui/Stepper'
 import { StepLabel } from '@ui/StepLabel'
 import { StepIndicator } from '@ui/StepIndicator'
 import { randomExluding, random } from '@utils'
+import { useTwitterData } from '@hooks/useTwitterData'
 
 export type GenerateWizardState = ChooseInformationStepState &
   FillInformationStepState &
@@ -59,8 +60,7 @@ export const GenerateWizard = ({
   const next =
     step !== steps.length - 1
       ? (newState?: GenerateWizardState) => {
-          const skip = 0
-          setStep((step) => step + 1 + skip)
+          setStep((step) => step + 1)
           if (!newState) return
           setState((prevState) => ({ ...prevState, ...newState }))
         }
@@ -71,9 +71,12 @@ export const GenerateWizard = ({
   // use media query
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
+  const { setData } = useTwitterData()
+
   const refresh = () => {
     setState({})
     setStep(0)
+    setData(null)
   }
 
   return (

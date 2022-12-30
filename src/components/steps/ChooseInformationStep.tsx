@@ -13,27 +13,29 @@ import { useState, useCallback } from 'react'
 import { Card } from '@ui'
 
 const DataBlock = ({
+  selected,
   onSelect,
   label
 }: {
+  selected?: boolean
   onSelect: (selected: boolean) => void
   label: string
 }) => {
-  const [selected, setSelected] = useState(false)
+  const [isSelected, setIsSelected] = useState(selected ?? false)
   const theme = useTheme()
   return (
     <Box
       borderRadius="10px"
       p="15px 20px"
       onClick={() => {
-        onSelect(!selected)
-        setSelected(!selected)
+        onSelect(!isSelected)
+        setIsSelected(!isSelected)
       }}
       sx={{
         cursor: 'pointer',
-        background: selected ? '#19097C' : 'rgba(255, 255, 255, 0.1)',
+        background: isSelected ? '#19097C' : 'rgba(255, 255, 255, 0.1)',
         border: `1px solid ${
-          selected ? 'rgba(20, 11, 227, 1)' : 'rgba(255, 255, 255, 0.2)'
+          isSelected ? 'rgba(20, 11, 227, 1)' : 'rgba(255, 255, 255, 0.2)'
         }`,
         [theme.breakpoints.down('sm')]: {
           p: 1.25
@@ -53,7 +55,7 @@ const DataBlock = ({
           }
         }}
       >
-        {label} {selected ? '-' : '+'}
+        {label} {isSelected ? '-' : '+'}
       </Typography>
     </Box>
   )
@@ -90,9 +92,11 @@ export type ChooseInformationStepState = Partial<{
 }>
 
 export const ChooseInformationStep = () => {
-  const { next, prev } = useGenerateWizardContext()
+  const { next, prev, state } = useGenerateWizardContext()
+  console.log(state)
 
-  const [localState, setLocalState] = useState<ChooseInformationStepState>({})
+  const [localState, setLocalState] =
+    useState<ChooseInformationStepState>(state)
 
   const appendLocalState = useCallback(
     (obj: Partial<typeof localState>) => {
@@ -114,12 +118,14 @@ export const ChooseInformationStep = () => {
               onSelect={(selected) =>
                 appendLocalState({ totalNFTsMinted: selected })
               }
+              selected={localState.totalNFTsMinted}
             />
             <DataBlock
               label="Spent on Mints (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ totalSpentOnMint: selected })
               }
+              selected={localState.totalSpentOnMint}
             />
           </CollapsableStack>
         </Stack>
@@ -131,18 +137,21 @@ export const ChooseInformationStep = () => {
               onSelect={(selected) =>
                 appendLocalState({ totalBought: selected })
               }
+              selected={localState.totalBought}
             />
             <DataBlock
               label="Total Spent (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ totalBoughtInETH: selected })
               }
+              selected={localState.totalBoughtInETH}
             />
             <DataBlock
               label="Biggest purchase (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ biggestPurchase: selected })
               }
+              selected={localState.biggestPurchase}
             />
           </CollapsableStack>
         </Stack>
@@ -152,18 +161,21 @@ export const ChooseInformationStep = () => {
             <DataBlock
               label="NFTs Sold"
               onSelect={(selected) => appendLocalState({ totalSold: selected })}
+              selected={localState.totalSold}
             />
             <DataBlock
               label="Total Sales (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ totalSoldInETH: selected })
               }
+              selected={localState.totalSoldInETH}
             />
             <DataBlock
               label="Biggest Sale (Ξ)"
               onSelect={(selected) =>
                 appendLocalState({ biggestSale: selected })
               }
+              selected={localState.biggestSale}
             />
           </CollapsableStack>
         </Stack>
@@ -186,12 +198,14 @@ export const ChooseInformationStep = () => {
             <DataBlock
               label="Bluechip NFTs"
               onSelect={(selected) => appendLocalState({ bluechips: selected })}
+              selected={localState.bluechips}
             />
             <DataBlock
               label="Avg Hold Time"
               onSelect={(selected) =>
                 appendLocalState({ avgHoldTime: selected })
               }
+              selected={localState.avgHoldTime}
             />
           </CollapsableStack>
         </Stack>

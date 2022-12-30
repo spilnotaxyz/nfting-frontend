@@ -3,11 +3,9 @@ import {
   createContext,
   useContext,
   PropsWithChildren,
-  useEffect,
   SetStateAction,
   Dispatch
 } from 'react'
-import { useSession } from 'next-auth/react'
 
 type TwitterDataContextType = {
   data: {
@@ -31,16 +29,7 @@ export const useTwitterData = () => {
 }
 
 export const TwitterDataContextProvider = (props: PropsWithChildren) => {
-  const { data: sessionData } = useSession()
   const [data, setData] = useState<TwitterDataContextType['data'] | null>(null)
-
-  useEffect(() => {
-    if (sessionData && sessionData.user.image && sessionData.user.name)
-      setData({
-        name: sessionData.user.name,
-        image: sessionData.user.image
-      })
-  }, [sessionData])
 
   return <TwitterDataContext.Provider value={{ data, setData }} {...props} />
 }

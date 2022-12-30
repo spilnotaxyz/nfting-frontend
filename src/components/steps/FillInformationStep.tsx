@@ -5,10 +5,11 @@ import {
   Stack,
   Theme,
   Typography,
+  TextField,
   useMediaQuery,
   useTheme
 } from '@mui/material'
-import { Card, Input } from '@ui'
+import { Card } from '@ui'
 import { useCallback, useState } from 'react'
 
 export type FillInformationStepState = Partial<{
@@ -35,9 +36,9 @@ const Label = ({ children }: { children: string }) => {
 }
 
 export const FillInformationStep = () => {
-  const { next, prev } = useGenerateWizardContext()
+  const { next, prev, state } = useGenerateWizardContext()
 
-  const [localState, setLocalState] = useState<FillInformationStepState>({})
+  const [localState, setLocalState] = useState<FillInformationStepState>(state)
 
   const appendLocalState = useCallback(
     (obj: Partial<typeof localState>) => {
@@ -58,7 +59,9 @@ export const FillInformationStep = () => {
           alignItems="center"
         >
           <Label>Your favorite NFT community</Label>
-          <Input
+          <TextField
+            defaultValue={localState.favouriteCommunity}
+            variant="outlined"
             required
             placeholder="@spilnotaxyz"
             onChange={(e) =>
@@ -78,7 +81,9 @@ export const FillInformationStep = () => {
           alignItems="center"
         >
           <Label>Your 2023 wish</Label>
-          <Input
+          <TextField
+            defaultValue={localState.wish}
+            variant="outlined"
             required
             multiline
             minRows={3}
@@ -99,7 +104,9 @@ export const FillInformationStep = () => {
             flexWrap="wrap"
             width={isMobile ? '100%' : 'min-content'}
           >
-            <Input
+            <TextField
+              defaultValue={localState.whoBroughtMeHere}
+              variant="outlined"
               placeholder="Type here"
               onChange={(e) =>
                 appendLocalState({ whoBroughtMeHere: e.target.value })

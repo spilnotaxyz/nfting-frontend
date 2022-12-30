@@ -1,3 +1,4 @@
+import { grey } from '@mui/material/colors'
 import { createTheme } from '@mui/material/styles'
 
 const ref = createTheme()
@@ -14,6 +15,9 @@ const theme = createTheme({
     },
     text: {
       primary: '#fff'
+    },
+    error: {
+      main: grey.A400
     }
   },
   typography: {
@@ -73,6 +77,22 @@ const theme = createTheme({
         root: {
           background: 'rgba(255, 255, 255, 0.2)',
           border: '1px solid rgba(255, 255, 255, 0.2)'
+        }
+      }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          minWidth: 325
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          borderRadius: '10px !important',
+          backgroundColor: '#fff',
+          color: '#000'
         }
       }
     }

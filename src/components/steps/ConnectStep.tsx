@@ -1,6 +1,6 @@
 import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
 import { Box, Button, Stack } from '@mui/material'
-import { ConnectTwitterButton, ConnectWalletButton } from '@components'
+import { ConnectTwitterInput, ConnectWalletButton } from '@components'
 import { useAccount } from 'wagmi'
 import { useTwitterData } from '@hooks/useTwitterData'
 import { Card } from '@ui'
@@ -18,7 +18,7 @@ export const ConnectStep = () => {
     <Card>
       <Stack direction="column" spacing={2}>
         <ConnectWalletButton variant="contained" size="large" fullWidth />
-        <ConnectTwitterButton variant="contained" size="large" fullWidth />
+        <ConnectTwitterInput variant="outlined" />
       </Stack>
       <Box flexGrow={1} />
       {next && (

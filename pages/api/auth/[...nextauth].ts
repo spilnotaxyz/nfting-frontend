@@ -6,17 +6,12 @@ import { IncomingMessage } from 'http'
 import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth, { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import TwitterProvider from 'next-auth/providers/twitter'
 
 import { getCsrfToken } from 'next-auth/react'
 import { SiweMessage } from 'siwe'
 
 export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
   const providers = [
-    TwitterProvider({
-      clientId: process.env.TWITTER_CUSTOMER_ID,
-      clientSecret: process.env.TWITTER_CUSTOMER_SECRET
-    }),
     CredentialsProvider({
       async authorize(credentials) {
         try {
@@ -65,14 +60,6 @@ export function getAuthOptions(req: IncomingMessage): NextAuthOptions {
   ]
 
   return {
-    callbacks: {
-      async session({ session, token }) {
-        if (token.name && token.picture)
-          session.user = { name: token.name, image: token.picture }
-
-        return session
-      }
-    },
     // https://next-auth.js.org/configuration/providers/oauth
     providers,
     secret: process.env.NEXTAUTH_SECRET,
