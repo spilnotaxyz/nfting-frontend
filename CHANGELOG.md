@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.12.0...v1.13.0) (2022-12-30)
+
+
+### Features
+
+* even more meta tags ([030ed00](https://github.com/spilnota-xyz/eve-frontend/commit/030ed0024c8e05b451dd43a82bf2e4a7350b9c18))
+
 # [1.12.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.11.0...v1.12.0) (2022-12-30)
 
 
