@@ -32,11 +32,13 @@ const DataBlock = ({
         setIsSelected(!isSelected)
       }}
       sx={{
+        fontFamily: 'Inter, sans-serif',
         cursor: 'pointer',
-        background: isSelected ? '#19097C' : 'rgba(255, 255, 255, 0.1)',
+        background: isSelected ? '#140BE3' : 'rgba(255, 255, 255, 0.1)',
         border: `1px solid ${
           isSelected ? 'rgba(20, 11, 227, 1)' : 'rgba(255, 255, 255, 0.2)'
         }`,
+        transition: '0.5s',
         [theme.breakpoints.down('sm')]: {
           p: 1.25
         }
@@ -45,11 +47,10 @@ const DataBlock = ({
       <Typography
         color="white"
         variant="body1"
-        fontFamily="Inter"
-        fontWeight="500"
         component="span"
         whiteSpace="nowrap"
         sx={{
+          fontWeight: '500',
           [theme.breakpoints.down('sm')]: {
             fontSize: 14
           }
@@ -187,8 +188,10 @@ export const ChooseInformationStep = () => {
               display="flex"
               alignItems="center"
               onClick={() => setHovering((prevState) => !prevState)}
+              height="32px"
             >
-              Holds <Info color="secondary" sx={{ ml: 1, cursor: 'pointer' }} />
+              Holds
+              <Info color="secondary" sx={{ ml: 1, cursor: 'pointer' }} />
               {hovering && (
                 <Chip label="FP > 1Ξ, Volume 30Ξ last 30 days" sx={{ ml: 1 }} />
               )}
@@ -221,7 +224,7 @@ export const ChooseInformationStep = () => {
             next?.(localState)
           }}
         >
-          Continue
+          Continue to add info
         </Button>
       )}
       {prev && (

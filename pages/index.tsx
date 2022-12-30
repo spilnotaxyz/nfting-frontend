@@ -8,6 +8,23 @@ const Home: NextPage = () => {
   const theme = useTheme()
   return (
     <Box p={1} display="flex" flexDirection="column" height="100%">
+      <Marquee gradient={false} speed={60}>
+        <Typography
+          variant="body1"
+          component="p"
+          align="center"
+          fontFamily="PPMondwest"
+          fontSize={212}
+          sx={{
+            [theme.breakpoints.down('sm')]: {
+              fontSize: 100
+            }
+          }}
+        >
+          2023 Year NFTing 2023 Year NFTing 2023 Year NFTing 2023 Year NFTing
+          &nbsp;
+        </Typography>
+      </Marquee>
       <Container>
         <Head>
           <title>spilnota.xyz</title>
@@ -25,16 +42,25 @@ const Home: NextPage = () => {
             alignItems: 'center'
           }}
         >
-          <Typography
-            variant="h2"
-            component="h1"
-            gutterBottom
-            align="center"
-            sx={{ maxWidth: 875 }}
+          <Box
+            p={1}
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            width="100%"
           >
-            Create your NFTing card which sums up your previous on-chain
-            activity. Share with friends, add your wishes and appreciation.
-          </Typography>
+            <Typography
+              variant="h2"
+              component="h1"
+              gutterBottom
+              sx={{ maxWidth: 875 }}
+            >
+              Create your NFTing card which sums up your previous on-chain
+              activity. Share with friends, add your wishes and appreciation.
+            </Typography>
+            <p>cards...</p>
+          </Box>
+
           <Link
             href="/generate"
             sx={{ '&:hover': { textDecoration: 'none !important' }, mt: 5 }}
@@ -58,23 +84,6 @@ const Home: NextPage = () => {
         </Container>
       </Container>
       <Box flexGrow={1} />
-      <Marquee gradient={false} speed={60}>
-        <Typography
-          variant="body1"
-          component="p"
-          align="center"
-          fontFamily="PPMondwest"
-          fontSize={212}
-          sx={{
-            [theme.breakpoints.down('sm')]: {
-              fontSize: 100
-            }
-          }}
-        >
-          2023 Year NFTing 2023 Year NFTing 2023 Year NFTing 2023 Year NFTing
-          &nbsp;
-        </Typography>
-      </Marquee>
     </Box>
   )
 }

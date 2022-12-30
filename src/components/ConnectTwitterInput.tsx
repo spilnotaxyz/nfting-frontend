@@ -47,12 +47,13 @@ export const ConnectTwitterInput = (props: TextFieldProps) => {
         display="flex"
         justifyContent="space-between"
         flexWrap={isMobile ? 'wrap' : 'nowrap'}
-        alignItems="center"
+        alignItems="flex-start"
       >
         <Typography variant="body1" color="white">
           Please add your Twitter handle
         </Typography>
         <TextField
+          fullWidth={isMobile}
           variant="outlined"
           required
           placeholder="@me"

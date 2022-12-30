@@ -32,12 +32,12 @@ export const ConnectStep = () => {
             next?.()
           }}
         >
-          Continue
+          Generate card
         </Button>
       )}
       {prev && (
         <Button onClick={prev} sx={{ mt: 2 }}>
-          ← Back
+          ← Back to add info
         </Button>
       )}
     </Card>

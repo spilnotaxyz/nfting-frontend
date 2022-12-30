@@ -52,8 +52,8 @@ const theme = createTheme({
           fontWeight: 400,
           fontSize: 22,
           borderRadius: ref.spacing(2),
-          paddingTop: ref.spacing(3.25),
-          paddingBottom: ref.spacing(3.25),
+          paddingTop: ref.spacing(3),
+          paddingBottom: ref.spacing(3),
           [ref.breakpoints.down('sm')]: {
             paddingTop: ref.spacing(2),
             paddingBottom: ref.spacing(2),
@@ -83,7 +83,10 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          minWidth: 325
+          minWidth: 325,
+          [ref.breakpoints.down('sm')]: {
+            minWidth: 'auto'
+          }
         }
       }
     },
