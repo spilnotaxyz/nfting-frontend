@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.14.0...v1.14.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* fix bad component ([bfb2979](https://github.com/spilnota-xyz/eve-frontend/commit/bfb29795117864daa1bd523256ee37f412225266))
+
 # [1.14.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.13.0...v1.14.0) (2022-12-30)
 
 
