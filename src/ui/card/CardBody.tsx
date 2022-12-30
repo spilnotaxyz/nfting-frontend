@@ -269,7 +269,7 @@ export const CardBody = ({
               header="Mints"
               data={{
                 Minted: `${totalNFTsMinted ?? '?'} nfts`,
-                Spent: `${totalSpentOnMint ?? '?'} Ξ`
+                Spent: `${totalSpentOnMint?.toFixed(2) ?? '?'} Ξ`
               }}
               loading={loading}
             />
@@ -279,8 +279,8 @@ export const CardBody = ({
               header="Purchases"
               data={{
                 Bought: `${totalBought ?? '?'} nfts`,
-                'Total spent': `${totalBoughtInETH ?? '?'} Ξ`,
-                'Biggest purchase': `${biggestPurchase ?? '?'} Ξ`
+                'Total spent': `${totalBoughtInETH?.toFixed(2) ?? '?'} Ξ`,
+                'Biggest purchase': `${biggestPurchase?.toFixed(2) ?? '?'} Ξ`
               }}
               loading={loading}
             />
@@ -293,8 +293,8 @@ export const CardBody = ({
               header="Sales"
               data={{
                 Sold: `${totalSold ?? '?'} nfts`,
-                'Total sales': `${totalSoldInETH ?? '?'} Ξ`,
-                'Biggest sale': `${biggestSale ?? '?'} Ξ`
+                'Total sales': `${totalSoldInETH?.toFixed(2) ?? '?'} Ξ`,
+                'Biggest sale': `${biggestSale?.toFixed(2) ?? '?'} Ξ`
               }}
               loading={loading}
             />
@@ -303,8 +303,8 @@ export const CardBody = ({
             <DataBlock
               header="Holds"
               data={{
-                Hold: `${bluechips ?? '?'} nfts`,
-                'Avg time of holding': `${
+                'Bluechips (FP > 1 Ξ)': `${bluechips ?? '?'} nfts`,
+                'Avg time of holding (FP > 0.2 Ξ)': `${
                   avgHoldTime ? Number(avgHoldTime / 86400).toFixed(0) : '?'
                 } days`
               }}

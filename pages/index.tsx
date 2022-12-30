@@ -107,24 +107,20 @@ const Home: NextPage = () => {
           <Grid container spacing={2}>
             <Grid xs={6}>
               <MainText align="left" />
+              <Generate />
             </Grid>
             <Grid display="flex" justifyContent="flex-end" xs={6}>
               <Image
                 src="/example.png"
                 alt="Examples"
-                width={359}
-                height={334}
+                height={630}
+                width={675}
               />
             </Grid>
           </Grid>
         </Hidden>
       </Container>
       <Box flexGrow={1} />
-      <Hidden smDown>
-        <Container sx={{ mt: 2 }} maxWidth="xl">
-          <Generate fullWidth />
-        </Container>
-      </Hidden>
       <Hidden mdUp>
         <RunningText />
       </Hidden>

@@ -1,4 +1,11 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  useContext,
+  useState
+} from 'react'
 
 export type CardDataContextType = {
   data?: {
@@ -20,6 +27,8 @@ export type CardDataContextType = {
     avgHoldTime?: number
   }
   setData: (data: CardDataContextType['data']) => void
+  loading: boolean
+  setLoading: Dispatch<SetStateAction<boolean>>
 }
 
 const CardDataContext = createContext<CardDataContextType | undefined>(
@@ -38,9 +47,10 @@ export const useCardData = () => {
 
 export const CardDataProvider = ({ children }: PropsWithChildren) => {
   const [data, setData] = useState<CardDataContextType['data'] | undefined>()
+  const [loading, setLoading] = useState(false)
 
   return (
-    <CardDataContext.Provider value={{ data, setData }}>
+    <CardDataContext.Provider value={{ data, setData, loading, setLoading }}>
       {children}
     </CardDataContext.Provider>
   )

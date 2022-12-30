@@ -14,11 +14,14 @@ const withMDX = require('@next/mdx')({
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   reactStrictMode: false,
+  experimental: {
+    proxyTimeout: 600000
+  },
   async rewrites() {
     return [
       {
         source: '/backend/:path*',
-        destination: 'https://api.eve.spilnota.xyz/:path*' // Proxy to Backend
+        destination: 'https://api.eve.spilnota.xyz/:path*', // Proxy to Backend,
       }
     ]
   }

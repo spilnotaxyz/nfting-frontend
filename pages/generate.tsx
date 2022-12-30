@@ -30,7 +30,9 @@ const Generate: NextPage = () => {
             shortTitle: 'Choose information',
             descriptionTop: (
               <Description>
-                Choose information you want see on the card
+                Decide what you want to know about your NFT journey and share
+                with the world. Some data might will take longer than the other.
+                Ethereum blockchain is supported support only.
               </Description>
             )
           },
@@ -39,7 +41,8 @@ const Generate: NextPage = () => {
             shortTitle: 'Add information',
             descriptionTop: (
               <Description>
-                Add information you want see on the card
+                Give back to the world by sharing your passions, wishes and
+                appreciation.
               </Description>
             )
           },
@@ -48,7 +51,9 @@ const Generate: NextPage = () => {
             shortTitle: 'Connect accounts',
             descriptionTop: (
               <Description>
-                Connect your wallet and twitter to generate your card
+                You don’t need to sign any transaction. We verify your ownership
+                and calculate the data based on your activity. Twitter is for
+                making the card personalised with your handle and avatar.
               </Description>
             )
           },

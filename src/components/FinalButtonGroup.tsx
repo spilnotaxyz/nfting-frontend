@@ -1,3 +1,4 @@
+import { useCardData } from '@hooks/useCardData'
 import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
 import { Button, Stack, Theme, useMediaQuery } from '@mui/material'
 import { RandomizeColorButton, ShareCardTwitterButton } from './buttons'
@@ -5,6 +6,7 @@ import { RandomizeColorButton, ShareCardTwitterButton } from './buttons'
 export const FinalButtonsGroup = () => {
   const { refresh } = useGenerateWizardContext()
   const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
+  const { loading } = useCardData()
   return (
     <Stack mt={isMobile ? 3 : 5} spacing={isMobile ? 1.25 : 2.5}>
       <RandomizeColorButton
@@ -31,6 +33,7 @@ export const FinalButtonsGroup = () => {
           maxWidth: 565
         }}
         onClick={refresh}
+        disabled={loading}
       >
         Generate new card
       </Button>
