@@ -46,7 +46,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ".next,.env.local,package.json"
+          source: "public,.next,.env.local,package.json"
           target: "frontend"
       - name: SSH Restart
         uses: appleboy/ssh-action@master
