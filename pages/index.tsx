@@ -73,7 +73,6 @@ const MainText = (props: TypographyProps) => {
   return (
     <Typography
       variant="h2"
-      component="h1"
       gutterBottom
       sx={{ maxWidth: 875 }}
       align="center"
