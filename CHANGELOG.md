@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.10.0...v1.11.0) (2022-12-30)
+
+
+### Bug Fixes
+
+* margin issues ([0e11ac1](https://github.com/spilnota-xyz/eve-frontend/commit/0e11ac116f9aa420eede5b2ab9fd001d2dceba01))
+
+
+### Features
+
+* styling fixes ([dd9c3b2](https://github.com/spilnota-xyz/eve-frontend/commit/dd9c3b2bbe0653f000ae184db50ed87f18b0a7f7))
+
 # [1.10.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.9.1...v1.10.0) (2022-12-30)
 
 
