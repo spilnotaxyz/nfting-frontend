@@ -31,7 +31,7 @@ export const DummyStep = () => {
 
       try {
         const response = await fetch(
-          `/api/transactions/${address}` + '?' + params
+          `/backend/transactions/${address}` + '?' + params
         )
         const result = await response.json()
         setData(result)

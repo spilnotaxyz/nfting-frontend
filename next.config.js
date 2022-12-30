@@ -17,7 +17,7 @@ module.exports = withMDX({
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
+        source: '/backend/:path*',
         destination: 'https://api.eve.spilnota.xyz/:path*' // Proxy to Backend
       }
     ]

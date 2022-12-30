@@ -25,7 +25,7 @@ export const ConnectTwitterInput = (props: TextFieldProps) => {
     setIsLoading(true)
     setIsError(false)
     try {
-      const response = await fetch(`/api/twitter/${handle}`)
+      const response = await fetch(`/backend/twitter/${handle}`)
       if (!response.ok) return setIsError(true)
 
       const result = await response.json()

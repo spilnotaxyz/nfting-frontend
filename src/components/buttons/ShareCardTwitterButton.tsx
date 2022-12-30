@@ -26,7 +26,7 @@ export const ShareCardTwitterButton = styled((props: ButtonProps) => {
     )
 
     try {
-      const response = await fetch(`/api/card`, {
+      const response = await fetch(`/backend/card`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
