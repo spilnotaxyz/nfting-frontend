@@ -21,7 +21,7 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: `"Inter", --apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen"`,
+    fontFamily: 'Inter',
     h1: {
       fontFamily: 'NeueMachina',
       fontSize: '3rem',
@@ -69,8 +69,9 @@ const theme = createTheme({
           backgroundImage: 'url(/background.svg)',
           backgroundSize: 'cover',
           backgroundAttachment: 'fixed',
+          backgroundPosition: '0 0',
           [ref.breakpoints.down('sm')]: {
-            backgroundImage: 'url(/background-mobile.svg)'
+            backgroundImage: 'url(/background-mobile.png)'
           }
         }
       }

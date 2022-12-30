@@ -32,7 +32,6 @@ const DataBlock = ({
         setIsSelected(!isSelected)
       }}
       sx={{
-        fontFamily: 'Inter, sans-serif',
         cursor: 'pointer',
         background: isSelected ? '#140BE3' : 'rgba(255, 255, 255, 0.1)',
         border: `1px solid ${
