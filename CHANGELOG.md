@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.7.0...v1.8.0) (2022-12-30)
+
+
+### Features
+
+* privacy policy ([12a2276](https://github.com/spilnota-xyz/eve-frontend/commit/12a2276346267980fb271e3be1586b35c1f8a8a7))
+
 # [1.7.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.6.0...v1.7.0) (2022-12-30)
 
 
