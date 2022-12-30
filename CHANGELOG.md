@@ -1,3 +1,11 @@
+## [1.14.2](https://github.com/spilnota-xyz/eve-frontend/compare/v1.14.1...v1.14.2) (2022-12-30)
+
+
+### Bug Fixes
+
+* fix missing type ([7d5024f](https://github.com/spilnota-xyz/eve-frontend/commit/7d5024fbf10c93b939ae6d83150189080049235e))
+* some other fixes ([97e63a0](https://github.com/spilnota-xyz/eve-frontend/commit/97e63a0aa2914957eeb9f0c5ee36af9c103f4e4a))
+
 ## [1.14.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.14.0...v1.14.1) (2022-12-30)
 
 
