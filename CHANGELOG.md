@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.9.1...v1.10.0) (2022-12-30)
+
+
+### Features
+
+* add spilnota footer to `CardBody` ([6472cb4](https://github.com/spilnota-xyz/eve-frontend/commit/6472cb49a9abe8cbd87763e8c2f273c664b7a6f9))
+
 ## [1.9.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.9.0...v1.9.1) (2022-12-30)
 
 
