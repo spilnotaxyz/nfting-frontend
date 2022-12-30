@@ -79,6 +79,14 @@ function MyApp({
     <>
       <Head>
         <link rel="shortcut icon" href="/favicon.svg" />
+        <meta name="twitter:creator" content="@spilnotaxyz" />
+        <meta name="twitter:site" content="@spilnotaxyz" />
+        <meta name="og:title" content="spilnota.xyz" />
+        <meta
+          name="og:description"
+          content="Celebrate NY Eve with Spilnota! Get your Spilnota Card and share love with the web3 community!"
+        />
+        <meta name="og:image" content="https://spilnota.xyz/meta_image.png" />
       </Head>
       <SessionProvider refetchInterval={0} session={pageProps.session}>
         <CacheProvider value={emotionCache}>
