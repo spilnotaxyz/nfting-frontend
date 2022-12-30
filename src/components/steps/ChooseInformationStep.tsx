@@ -4,7 +4,6 @@ import {
   Box,
   BoxProps,
   Button,
-  Chip,
   Stack,
   Tooltip,
   Typography,
@@ -106,8 +105,6 @@ export const ChooseInformationStep = () => {
     },
     [setLocalState]
   )
-
-  const [hovering, setHovering] = useState(false)
 
   return (
     <Card>
