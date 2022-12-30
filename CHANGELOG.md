@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.9.0...v1.9.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* proxy rewrite fix ([51ebdcd](https://github.com/spilnota-xyz/eve-frontend/commit/51ebdcd4be80ffdeaa13157dc23d2eb8cc9bcb94))
+
 # [1.9.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.8.0...v1.9.0) (2022-12-30)
 
 
