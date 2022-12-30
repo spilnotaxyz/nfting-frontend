@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.13.0...v1.14.0) (2022-12-30)
+
+
+### Features
+
+* release ([f021aad](https://github.com/spilnota-xyz/eve-frontend/commit/f021aad47c2d29887715f1d098d9f5dbc1d9b64c))
+
 # [1.13.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.12.0...v1.13.0) (2022-12-30)
 
 
