@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.6.0...v1.7.0) (2022-12-30)
+
+
+### Features
+
+* drop `TwitterConnectButton` and few fixes ([bea5ab4](https://github.com/spilnota-xyz/eve-frontend/commit/bea5ab46002f4cbecdb1fc3e65fbfbcaea24f5d2))
+
 # [1.6.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.5.0...v1.6.0) (2022-12-29)
 
 
