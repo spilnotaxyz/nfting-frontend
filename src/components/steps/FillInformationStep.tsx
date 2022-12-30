@@ -102,7 +102,7 @@ export const FillInformationStep = () => {
           justifyContent="space-between"
           flexWrap={isMobile ? 'wrap' : 'nowrap'}
           alignItems="center"
-          gap={8}
+          gap={isMobile ? 'auto' : 1}
         >
           <Label alignSelf="baseline" pt={isMobile ? 'auto' : 1}>
             Whom you want to Thank for Web3 journey in 2022?

@@ -60,7 +60,7 @@ jobs:
             cd frontend
             yarn --production
             pm2 delete "frontend"
-            pm2 start --name "frontend" yarn -- start
+            pm2 start --name "frontend" yarn -- start --keepAliveTimeout 600000
   release:
     name: Release
     needs: lint

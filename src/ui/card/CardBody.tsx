@@ -304,7 +304,7 @@ export const CardBody = ({
               header="Holds"
               data={{
                 'Bluechips (FP > 1 Ξ)': `${bluechips ?? '?'} nfts`,
-                'Avg time of holding (FP > 0.2 Ξ)': `${
+                'Avg time (FP > 0.2 Ξ)': `${
                   avgHoldTime ? Number(avgHoldTime / 86400).toFixed(0) : '?'
                 } days`
               }}

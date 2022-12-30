@@ -20,21 +20,6 @@ export const CardPage: NextPage = () => {
   return (
     <Container maxWidth="xl" sx={{ height: '100%' }}>
       <Grid container justifyContent="center" spacing={5}>
-        <Grid xs={12} md={6}>
-          <Card
-            sx={{
-              background: cardProps?.gradientIndex
-                ? GRADIENTS[cardProps.gradientIndex]
-                : 'inherit',
-              borderRadius: '40px',
-              borderWidth: 4,
-              boxShadow: 'inset 0px 0px 0px 4px rgba(255, 255, 255, 0.2)',
-              p: 'auto'
-            }}
-          >
-            <CardBody loading={!cardProps} {...(cardProps ?? {})} />
-          </Card>
-        </Grid>
         <Grid xs={12} display="flex" justifyContent="center">
           <Link
             href="/generate"
@@ -53,6 +38,21 @@ export const CardPage: NextPage = () => {
               Make your own card
             </Button>
           </Link>
+        </Grid>
+        <Grid xs={12} md={6}>
+          <Card
+            sx={{
+              background: cardProps?.gradientIndex
+                ? GRADIENTS[cardProps.gradientIndex]
+                : 'inherit',
+              borderRadius: '40px',
+              borderWidth: 4,
+              boxShadow: 'inset 0px 0px 0px 4px rgba(255, 255, 255, 0.2)',
+              p: 'auto'
+            }}
+          >
+            <CardBody loading={!cardProps} {...(cardProps ?? {})} />
+          </Card>
         </Grid>
       </Grid>
     </Container>

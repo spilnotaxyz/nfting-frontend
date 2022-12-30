@@ -1,11 +1,11 @@
 import {
-  useState,
   createContext,
   useContext,
   PropsWithChildren,
   SetStateAction,
   Dispatch
 } from 'react'
+import { useLocalStorage } from './useLocalStorage'
 
 type TwitterDataContextType = {
   data: {
@@ -29,7 +29,9 @@ export const useTwitterData = () => {
 }
 
 export const TwitterDataContextProvider = (props: PropsWithChildren) => {
-  const [data, setData] = useState<TwitterDataContextType['data'] | null>(null)
+  const [data, setData] = useLocalStorage<
+    TwitterDataContextType['data'] | null
+  >('twitter-data', null)
 
   return <TwitterDataContext.Provider value={{ data, setData }} {...props} />
 }

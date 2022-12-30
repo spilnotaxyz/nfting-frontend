@@ -98,7 +98,7 @@ export const GenerateWizard = ({
       }}
     >
       <CardDataProvider>
-        <Grid container spacing={isMobile ? 1 : 2} sx={{ height: '100%' }}>
+        <Grid container spacing={isMobile ? 1 : 4} sx={{ height: '100%' }}>
           <Grid
             xs={12}
             md={6}

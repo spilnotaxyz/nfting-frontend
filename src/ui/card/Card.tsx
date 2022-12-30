@@ -14,7 +14,6 @@ export const Card = ({ sx, ...rest }: PaperProps) => {
         minHeight: isMobile ? 'auto' : 585,
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
         width: '100%',
         p: isMobile ? 2.5 : 5,
         ...sx
