@@ -7,7 +7,8 @@ import {
   Typography,
   TextField,
   useMediaQuery,
-  useTheme
+  useTheme,
+  TypographyProps
 } from '@mui/material'
 import { Card } from '@ui'
 import { useCallback, useState } from 'react'
