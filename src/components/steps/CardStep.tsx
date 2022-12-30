@@ -30,7 +30,9 @@ export const DummyStep = () => {
 
       try {
         const response = await fetch(
-          `/backend/transactions/${address}` + '?' + params
+          `/backend/transactions/0x5eeeFc7D872C03296639bcc49D11c99403d2F4A8` +
+            '?' +
+            params
         )
         const result = await response.json()
         setData(result)
@@ -45,7 +47,14 @@ export const DummyStep = () => {
   return (
     <>
       <Typography fontFamily="NeueMachina" align="center">
-        OGs might need to wait a few minutes.
+        OGs might need to wait a few minutes.{' '}
+        {isMobile && (
+          <>
+            {' '}
+            <br />
+            If it is taking too long, try refreshing the page.
+          </>
+        )}
       </Typography>
       <Card
         sx={{
