@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.8.0...v1.9.0) (2022-12-30)
+
+
+### Features
+
+* optimization and use next.js proxy ([fbf8768](https://github.com/spilnota-xyz/eve-frontend/commit/fbf87684b87d88d2407861371b51cf761382ad78))
+
 # [1.8.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.7.0...v1.8.0) (2022-12-30)
 
 
