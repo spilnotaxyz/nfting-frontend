@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.15.0...v1.15.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* share card twitter button ([9c03692](https://github.com/spilnota-xyz/eve-frontend/commit/9c03692dabb816e33c59174b833d241f8678baf2))
+
 # [1.15.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.14.2...v1.15.0) (2022-12-30)
 
 
