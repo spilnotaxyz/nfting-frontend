@@ -94,7 +94,6 @@ export type ChooseInformationStepState = Partial<{
 
 export const ChooseInformationStep = () => {
   const { next, prev, state } = useGenerateWizardContext()
-  console.log(state)
 
   const [localState, setLocalState] =
     useState<ChooseInformationStepState>(state)
