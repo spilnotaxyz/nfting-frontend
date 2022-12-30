@@ -38,8 +38,8 @@ jobs:
         run: yarn install
       - name: Build 🪛
         run: yarn build
-      - name: Decode .env.local
-        run: echo "${{ secrets.ENV_FILE_BASE64 }}" | base64 -d > .env.local
+      - name: Decode .env.production
+        run: echo "${{ secrets.ENV_FILE_BASE64 }}" | base64 -d > .env.production
       - name: SSH Copy
         uses: appleboy/scp-action@master
         with:
