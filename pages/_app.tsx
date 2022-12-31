@@ -30,6 +30,7 @@ import {
 } from '@mui/material'
 import { Footer, Header } from '@components/layout'
 import { TwitterDataContextProvider } from '@hooks/useTwitterData'
+import Script from 'next/script'
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -120,6 +121,19 @@ function MyApp({
         <meta name="twitter:creator" content="@spilnotaxyz" />
         <meta name="twitter:site" content="@spilnotaxyz" />
       </Head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-3F4BG2GTFQ"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-3F4BG2GTFQ');
+        `}
+      </Script>
       <SessionProvider refetchInterval={0} session={pageProps.session}>
         <CacheProvider value={emotionCache}>
           <WagmiConfig client={wagmiClient}>
