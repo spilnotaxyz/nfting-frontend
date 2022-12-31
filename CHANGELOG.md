@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.16.0...v1.17.0) (2022-12-31)
+
+
+### Features
+
+* add google analytics ([9f98d39](https://github.com/spilnota-xyz/eve-frontend/commit/9f98d3950fba8bf00c592d2ce28d74d545a59391))
+
 # [1.16.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.15.1...v1.16.0) (2022-12-30)
 
 
