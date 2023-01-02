@@ -4,6 +4,7 @@ import { ConnectTwitterInput, ConnectWalletButton } from '@components'
 import { useAccount } from 'wagmi'
 import { useTwitterData } from '@hooks/useTwitterData'
 import { Card } from '@ui'
+import { event } from 'nextjs-google-analytics'
 
 export type ConnectStepState = Partial<{
   connectedWallet: boolean
@@ -30,6 +31,7 @@ export const ConnectStep = () => {
           disabled={!account.isConnected || !data || !data.name || !data.image}
           onClick={() => {
             next?.()
+            event('login', { category: 'connect', label: 'twitter' })
           }}
         >
           Generate card

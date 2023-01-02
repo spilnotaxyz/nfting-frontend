@@ -7,6 +7,7 @@ import {
   Typography,
   useMediaQuery
 } from '@mui/material'
+import { event } from 'nextjs-google-analytics'
 
 export const FollowNotice = (props: BoxProps) => {
   const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
@@ -36,6 +37,7 @@ export const FollowNotice = (props: BoxProps) => {
         }
         variant="outlined"
         onClick={() => {
+          event('follow')
           window.open(
             `https://twitter.com/intent/follow?original_referer=${window.location.origin}%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5Espilnotaxyz&region=follow_link&screen_name=spilnotaxyz`,
             '_blank'

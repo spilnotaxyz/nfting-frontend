@@ -1,6 +1,8 @@
 import { ConnectButton as RainbowKitConnectButton } from '@rainbow-me/rainbowkit'
 import { Button, ButtonProps, styled } from '@mui/material'
 import { Check } from '@mui/icons-material'
+import { useAccount } from 'wagmi'
+import { event } from 'nextjs-google-analytics'
 
 const formatAddress = (address: string): string =>
   `${address.slice(0, 6)}...${address.slice(-4)}`
@@ -14,6 +16,11 @@ const StyledButton = styled(Button)({
 })
 
 export const ConnectWalletButton = (props: ButtonProps) => {
+  useAccount({
+    onConnect: () => {
+      event('login', { category: 'connect', label: 'wallet' })
+    }
+  })
   return (
     <RainbowKitConnectButton.Custom>
       {({ account, openConnectModal, authenticationStatus, mounted }) => {

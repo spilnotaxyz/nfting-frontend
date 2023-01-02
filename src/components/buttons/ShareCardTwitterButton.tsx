@@ -4,6 +4,7 @@ import { Twitter } from '@mui/icons-material'
 import { Button, ButtonProps } from '@mui/material'
 import { useCallback, useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
+import { event } from 'nextjs-google-analytics'
 
 export const ShareCardTwitterButton = (props: ButtonProps) => {
   const { state, randomColorIndex } = useGenerateWizardContext()
@@ -77,6 +78,12 @@ export const ShareCardTwitterButton = (props: ButtonProps) => {
 
   return (
     <Link
+      onClick={() => {
+        event('share', {
+          category: 'twitter',
+          label: 'card'
+        })
+      }}
       href={url}
       sx={{
         '&:hover': { textDecoration: 'none !important' }

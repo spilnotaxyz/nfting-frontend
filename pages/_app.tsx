@@ -31,6 +31,7 @@ import {
 import { Footer, Header } from '@components/layout'
 import { TwitterDataContextProvider } from '@hooks/useTwitterData'
 import Script from 'next/script'
+import { GoogleAnalytics } from 'nextjs-google-analytics'
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -159,6 +160,7 @@ function MyApp({
                         disableGutters
                         maxWidth={false}
                       >
+                        <GoogleAnalytics trackPageViews />
                         <Component {...pageProps} />
                       </ThemeContainer>
                       <Hidden smDown>

@@ -8,7 +8,13 @@ import {
   useTheme
 } from '@mui/material'
 
-import { Children, createContext, PropsWithChildren, ReactNode } from 'react'
+import {
+  Children,
+  createContext,
+  PropsWithChildren,
+  ReactNode,
+  useEffect
+} from 'react'
 import { ChooseInformationStepState, FillInformationStepState } from './steps'
 import { ConnectStepState } from './steps/ConnectStep'
 import { useLocalStorage } from '@hooks/useLocalStorage'
@@ -19,6 +25,7 @@ import { StepIndicator } from '@ui/StepIndicator'
 import { randomExluding, random } from '@utils'
 import { useTwitterData } from '@hooks/useTwitterData'
 import { CardDataProvider } from '@hooks/useCardData'
+import { event } from 'nextjs-google-analytics'
 
 export type GenerateWizardState = ChooseInformationStepState &
   FillInformationStepState &
@@ -80,6 +87,12 @@ export const GenerateWizard = ({
     setStep(0)
     setData(null)
   }
+
+  useEffect(() => {
+    event('page_view', {
+      page_title: steps[step].title
+    })
+  }, [steps, step])
 
   return (
     <GenerateWizardContext.Provider
