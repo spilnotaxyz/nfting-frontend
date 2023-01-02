@@ -63,8 +63,7 @@ export const FillInformationStep = () => {
             fullWidth={isMobile}
             defaultValue={localState.favouriteCommunity}
             variant="outlined"
-            required
-            placeholder="https://twitter.com/youracountname"
+            placeholder="@spilnotaxyz"
             onChange={(e) => {
               appendLocalState({
                 favouriteCommunity: e.target.value
@@ -87,7 +86,6 @@ export const FillInformationStep = () => {
             fullWidth={isMobile}
             defaultValue={localState.wish}
             variant="outlined"
-            required
             multiline
             minRows={3}
             placeholder="Type your wish"
@@ -138,7 +136,7 @@ export const FillInformationStep = () => {
           size="large"
           variant="contained"
           fullWidth
-          disabled={!next || !localState.wish || !localState.favouriteCommunity}
+          disabled={!next}
           onClick={() => {
             next?.(localState)
           }}
