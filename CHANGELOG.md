@@ -1,3 +1,11 @@
+# [1.18.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.17.0...v1.18.0) (2023-01-02)
+
+
+### Features
+
+* add producthunt to footer ([fff3919](https://github.com/spilnota-xyz/eve-frontend/commit/fff3919530e9ee5d5379bcc1c55079b577c06373))
+* more detailed google analytics ([c306f83](https://github.com/spilnota-xyz/eve-frontend/commit/c306f83076db04ec91853a5865f27761eaeeb402))
+
 # [1.17.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.16.0...v1.17.0) (2022-12-31)
 
 
