@@ -1,8 +1,7 @@
 import { useGenerateWizardContext } from '@hooks/useGenerateWizard'
 import { Box, Button, Stack } from '@mui/material'
 import { ConnectTwitterInput, ConnectWalletButton } from '@components'
-import { useAccount } from 'wagmi'
-import { useTwitterData } from '@hooks/useTwitterData'
+import { useTwitterData, useAddressData } from '@hooks'
 import { Card } from '@ui'
 import { event } from 'nextjs-google-analytics'
 
@@ -13,12 +12,12 @@ export type ConnectStepState = Partial<{
 
 export const ConnectStep = () => {
   const { next, prev } = useGenerateWizardContext()
-  const account = useAccount()
   const { data } = useTwitterData()
+  const { address } = useAddressData()
   return (
     <Card>
       <Stack direction="column" spacing={2}>
-        <ConnectWalletButton variant="contained" size="large" fullWidth />
+        <ConnectWalletButton variant="outlined" />
         <ConnectTwitterInput variant="outlined" />
       </Stack>
       <Box flexGrow={1} />
@@ -28,7 +27,7 @@ export const ConnectStep = () => {
           size="large"
           variant="contained"
           fullWidth
-          disabled={!account.isConnected || !data || !data.name || !data.image}
+          disabled={!address || !data || !data.name || !data.image}
           onClick={() => {
             next?.()
             event('login', { category: 'connect', label: 'twitter' })

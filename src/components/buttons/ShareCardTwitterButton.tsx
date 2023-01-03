@@ -1,14 +1,18 @@
 import { Link } from '@components/Link'
-import { useTwitterData, useCardData, useGenerateWizardContext } from '@hooks'
+import {
+  useTwitterData,
+  useCardData,
+  useGenerateWizardContext,
+  useAddressData
+} from '@hooks'
 import { Twitter } from '@mui/icons-material'
 import { Button, ButtonProps } from '@mui/material'
 import { useCallback, useEffect, useState } from 'react'
-import { useAccount } from 'wagmi'
 import { event } from 'nextjs-google-analytics'
 
 export const ShareCardTwitterButton = (props: ButtonProps) => {
   const { state, randomColorIndex } = useGenerateWizardContext()
-  const { address } = useAccount()
+  const { address } = useAddressData()
   const { data } = useTwitterData()
   const { data: cardData, loading: cardLoading } = useCardData()
   const [loading, setLoading] = useState(false)

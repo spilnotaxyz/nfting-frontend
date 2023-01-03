@@ -1,4 +1,4 @@
-export * from '../ConnectTwitterInput'
-export * from './ConnectWalletButton'
+export * from '../inputs/ConnectTwitterInput'
+export * from '../inputs/ConnectWalletInput'
 export * from './RandomizeColorButton'
 export * from './ShareCardTwitterButton'
