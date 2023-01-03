@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.18.0...v1.18.1) (2023-01-03)
+
+
+### Bug Fixes
+
+* bugfix ([3b6acd5](https://github.com/spilnota-xyz/eve-frontend/commit/3b6acd5b333ff3b3ff30b7bd439b5019f3b2b79f))
+
 # [1.18.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.17.0...v1.18.0) (2023-01-02)
 
 
