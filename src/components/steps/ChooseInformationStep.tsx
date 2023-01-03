@@ -55,7 +55,7 @@ const DataBlock = ({
           }
         }}
       >
-        {label} {isSelected ? '-' : '+'}
+        {label} {isSelected ? '+' : '-'}
       </Typography>
     </Box>
   )
