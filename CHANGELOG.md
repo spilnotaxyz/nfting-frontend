@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.18.1...v1.19.0) (2023-01-03)
+
+
+### Features
+
+* drop `@rainbow-me/rainbowkit` along with connect button ([f43d2fc](https://github.com/spilnota-xyz/eve-frontend/commit/f43d2fc09a13ac4a10e4986d782eb4bcbc7153c0))
+
 ## [1.18.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.18.0...v1.18.1) (2023-01-03)
 
 
