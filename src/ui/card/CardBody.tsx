@@ -228,16 +228,28 @@ export const CardBody = ({
               >
                 {loading ? <Skeleton width={120} /> : `@${username}`}
               </Typography>
-              <LabelCaption mt={1.5}>
-                {loading ? <Skeleton width={120} /> : 'My favourite community'}
-              </LabelCaption>
-              <Typography
-                fontFamily="NeueMachina"
-                fontSize={12}
-                color="rgba(255, 255, 255, 0.8)"
-              >
-                {loading ? <Skeleton width={120} /> : `@${favouriteCommunity}`}
-              </Typography>
+              {favouriteCommunity && (
+                <>
+                  <LabelCaption mt={1.5}>
+                    {loading ? (
+                      <Skeleton width={120} />
+                    ) : (
+                      'My favourite community'
+                    )}
+                  </LabelCaption>
+                  <Typography
+                    fontFamily="NeueMachina"
+                    fontSize={12}
+                    color="rgba(255, 255, 255, 0.8)"
+                  >
+                    {loading ? (
+                      <Skeleton width={120} />
+                    ) : (
+                      `@${favouriteCommunity}`
+                    )}
+                  </Typography>
+                </>
+              )}
             </Box>
           </Box>
           <Stack spacing={isMobile ? 0.625 : 1} width="100%">
@@ -248,7 +260,7 @@ export const CardBody = ({
                 height={60}
               />
             ) : (
-              <MessageBox>{wish}</MessageBox>
+              wish && <MessageBox>{wish}</MessageBox>
             )}
 
             {loading ? (
