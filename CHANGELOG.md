@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.19.0...v1.20.0) (2023-01-04)
+
+
+### Features
+
+* chunk data loading ([d4cdb12](https://github.com/spilnota-xyz/eve-frontend/commit/d4cdb12145a5e29d55a61db9c7a3fb010e01dc86))
+
 # [1.19.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.18.1...v1.19.0) (2023-01-03)
 
 
