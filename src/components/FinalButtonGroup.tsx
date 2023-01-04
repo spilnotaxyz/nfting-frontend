@@ -6,7 +6,7 @@ import { RandomizeColorButton, ShareCardTwitterButton } from './buttons'
 export const FinalButtonsGroup = () => {
   const { refresh } = useGenerateWizardContext()
   const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
-  const { loading } = useCardData()
+  const { loading, refresh: refreshCardData } = useCardData()
   return (
     <Stack mt={isMobile ? 3 : 5} spacing={isMobile ? 1.25 : 2.5}>
       <RandomizeColorButton
@@ -32,7 +32,10 @@ export const FinalButtonsGroup = () => {
         sx={{
           maxWidth: 565
         }}
-        onClick={refresh}
+        onClick={() => {
+          refresh()
+          refreshCardData()
+        }}
         disabled={loading}
       >
         Generate new card

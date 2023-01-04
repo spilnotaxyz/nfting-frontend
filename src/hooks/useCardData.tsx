@@ -29,6 +29,7 @@ export type CardDataContextType = {
   }
   appendData: (data: CardDataContextType['data']) => void
   loading: boolean
+  refresh: () => void
   setLoading: Dispatch<SetStateAction<boolean>>
 }
 
@@ -54,12 +55,18 @@ export const CardDataProvider = ({ children }: PropsWithChildren) => {
     <CardDataContext.Provider
       value={{
         data,
+        refresh: () => setData({}),
         appendData: (data) =>
           setData((prevState) => {
             // add up the number fields
             //if (Object.values(data ?? {}).every((v) => !v)) return prevState
             const holdTransactions =
               (prevState.holdTransactions ?? 0) + (data.holdTransactions ?? 0)
+            const avgHoldTime =
+              ((prevState.avgHoldTime ?? 0) *
+                (prevState.holdTransactions ?? 0) +
+                (data.avgHoldTime ?? 0) * (data.holdTransactions ?? 0)) /
+              (holdTransactions || 1)
             return {
               totalBought:
                 (prevState.totalBought ?? 0) + (data.totalBought ?? 0),
@@ -75,11 +82,7 @@ export const CardDataProvider = ({ children }: PropsWithChildren) => {
               totalNFTsMinted:
                 (prevState.totalNFTsMinted ?? 0) + (data.totalNFTsMinted ?? 0),
               bluechips: (prevState.bluechips ?? 0) + (data.bluechips ?? 0),
-              avgHoldTime:
-                ((prevState.avgHoldTime ?? 0) *
-                  (prevState.holdTransactions ?? 0) +
-                  (data.avgHoldTime ?? 0) * (data.holdTransactions ?? 0)) /
-                holdTransactions,
+              avgHoldTime,
               holdTransactions,
               biggestPurchase: Math.max(
                 prevState.biggestPurchase ?? 0,

@@ -9,6 +9,10 @@ import {
   useGenerateWizardContext
 } from '@hooks'
 
+import axios from 'axios'
+
+const AXIOS = axios.create({ baseURL: '/backend/transactions' })
+
 export const DummyStep = () => {
   const { data } = useTwitterData()
 
@@ -27,55 +31,187 @@ export const DummyStep = () => {
 
     ;(async () => {
       setLoading(true)
+      await Promise.all([
+        (async () => {
+          let continuationTransactions: string | null | undefined
 
-      // object to store continuation values, if there's page continuation
-      let continuations: {
-        continuationContracts?: string | null
-        continuationTransactions?: string | null
-      } = {}
+          // continue fetching data until there's no continuation - null value
+          while (continuationTransactions !== null) {
+            try {
+              const {
+                data: {
+                  continuation: nextContinuationTransactions,
+                  transactions
+                }
+              } = await AXIOS.get(`/transactions/${address}`, {
+                params: {
+                  continuation: continuationTransactions
+                }
+              })
 
-      // continue fetching data until there's no continuation - null value
-      while (
-        continuations.continuationContracts !== null ||
-        continuations.continuationTransactions !== null
-      ) {
-        // create url with query params from state
-        const params = new URLSearchParams()
+              const promises = []
 
-        Object.entries(state).forEach(([key, value]) =>
-          params.append(key, value.toString())
-        )
+              if (state.totalBought) {
+                promises.push(
+                  (async () => {
+                    const { data: totalBought } = await AXIOS.post(
+                      `/total-bought/${address}`,
+                      {
+                        transactions
+                      }
+                    )
+                    appendData({ totalBought })
+                  })()
+                )
+              }
 
-        // add continuation if there's any
-        if (continuations.continuationContracts)
-          params.append(
-            'continuationContracts',
-            continuations.continuationContracts
-          )
+              if (state.totalSold) {
+                promises.push(
+                  (async () => {
+                    const { data: totalSold } = await AXIOS.post(
+                      `/total-sold/${address}`,
+                      {
+                        transactions
+                      }
+                    )
+                    appendData({ totalSold })
+                  })()
+                )
+              }
 
-        if (continuations.continuationTransactions)
-          params.append(
-            'continuationTransactions',
-            continuations.continuationTransactions
-          )
+              if (state.biggestPurchase) {
+                promises.push(
+                  (async () => {
+                    const { data: biggestPurchase } = await AXIOS.post(
+                      `/biggest-purchase/${address}`,
+                      {
+                        transactions
+                      }
+                    )
+                    appendData({ biggestPurchase })
+                  })()
+                )
+              }
 
-        try {
-          const response = await fetch(
-            `/backend/transactions/${address}` + '?' + params
-          )
-          const { continuationContracts, continuationTransactions, ...result } =
-            await response.json()
-          appendData(result)
+              if (state.biggestSale) {
+                promises.push(
+                  (async () => {
+                    const { data: biggestSale } = await AXIOS.post(
+                      `/biggest-sale/${address}`,
+                      {
+                        transactions
+                      }
+                    )
+                    appendData({ biggestSale })
+                  })()
+                )
+              }
 
-          // update continuation values, if backend did not return it - set it to null
-          continuations = {
-            continuationContracts: continuationContracts ?? null,
-            continuationTransactions: continuationTransactions ?? null
+              if (state.totalBoughtInETH) {
+                promises.push(
+                  (async () => {
+                    const { data: totalBoughtInETH } = await AXIOS.post(
+                      `/total-bought-in-eth/${address}`,
+                      {
+                        transactions
+                      }
+                    )
+                    appendData({ totalBoughtInETH })
+                  })()
+                )
+              }
+
+              if (state.totalSoldInETH) {
+                promises.push(
+                  (async () => {
+                    const { data: totalSoldInETH } = await AXIOS.post(
+                      `/total-sold-in-eth/${address}`,
+                      {
+                        transactions
+                      }
+                    )
+                    appendData({ totalSoldInETH })
+                  })()
+                )
+              }
+
+              if (state.totalSpentOnMint) {
+                promises.push(
+                  (async () => {
+                    const { data: totalSpentOnMint } = await AXIOS.post(
+                      `/total-spent-on-mint/${address}`,
+                      {
+                        transactions
+                      }
+                    )
+                    appendData({ totalSpentOnMint })
+                  })()
+                )
+              }
+
+              if (state.totalNFTsMinted) {
+                promises.push(
+                  (async () => {
+                    const { data: totalNFTsMinted } = await AXIOS.post(
+                      `/total-minted/${address}`,
+                      {
+                        transactions
+                      }
+                    )
+                    appendData({ totalNFTsMinted })
+                  })()
+                )
+              }
+
+              if (state.avgHoldTime) {
+                promises.push(
+                  (async () => {
+                    const {
+                      data: { avgHoldTime, holdTransactions }
+                    } = await AXIOS.post(`/average-hold-time/${address}`, {
+                      transactions
+                    })
+                    appendData({ avgHoldTime, holdTransactions })
+                  })()
+                )
+              }
+
+              await Promise.all(promises)
+
+              // update continuation values, if backend did not return it - set it to null
+              continuationTransactions = nextContinuationTransactions ?? null
+            } catch (e) {
+              console.error(e)
+              break
+            }
           }
-        } catch (e) {
-          console.error(e)
-        }
-      }
+        })(),
+        (async () => {
+          let continuationContracts: string | null | undefined
+
+          while (continuationContracts !== null) {
+            const {
+              data: { continuation: nextContinuationContracts, contracts }
+            } = await AXIOS.get(`/owned-contracts/${address}`, {
+              params: {
+                continuation: continuationContracts
+              }
+            })
+
+            if (state.bluechips) {
+              const { data: bluechips } = await AXIOS.post(
+                `/bluechips/${address}`,
+                {
+                  contracts
+                }
+              )
+              appendData({ bluechips })
+            }
+
+            continuationContracts = nextContinuationContracts ?? null
+          }
+        })()
+      ])
       // stop fetching
       setLoading(false)
     })()
@@ -86,7 +222,7 @@ export const DummyStep = () => {
   return (
     <>
       <Typography fontFamily="NeueMachina" align="center">
-        OGs might need to wait a few minutes.{' '}
+        OGs might need to wait a few minutes.
       </Typography>
       <Card
         sx={{
