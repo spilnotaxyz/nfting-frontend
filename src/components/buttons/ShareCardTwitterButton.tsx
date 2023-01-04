@@ -25,6 +25,7 @@ export const ShareCardTwitterButton = (props: ButtonProps) => {
       )
       return
     }
+    if (cardLoading) return
     setLoading(true)
     const params = new URLSearchParams()
 
@@ -58,7 +59,7 @@ export const ShareCardTwitterButton = (props: ButtonProps) => {
       console.warn(e)
       setLoading(false)
     }
-  }, [address, data, state, randomColorIndex, cardData])
+  }, [address, data, state, randomColorIndex, cardData, cardLoading])
 
   useEffect(() => {
     ;(async () => {
@@ -90,6 +91,7 @@ export const ShareCardTwitterButton = (props: ButtonProps) => {
       }}
       href={url}
       sx={{
+        textDecoration: 'none !important',
         '&:hover': { textDecoration: 'none !important' }
       }}
       target="_blank"

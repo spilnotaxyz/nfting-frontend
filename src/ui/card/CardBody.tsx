@@ -137,7 +137,7 @@ const BoxedGrid = (props: GridProps) => {
   )
 }
 
-const Title = (props: TypographyProps & { loading?: boolean }) => {
+const Title = (props: TypographyProps) => {
   const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
   return (
     <Typography
@@ -176,7 +176,7 @@ export const CardBody = ({
         pb={isMobile ? 1.875 : 3.125}
         px={isMobile ? 2.5 : 3.75}
       >
-        <Title mr={1} lineHeight={1} loading={loading}>
+        <Title mr={1} lineHeight={1}>
           2023 NFTing
         </Title>
         <Snow width={isMobile ? 16 : 27} height={isMobile ? 16 : 27} />
@@ -283,7 +283,11 @@ export const CardBody = ({
                 Minted: `${totalNFTsMinted ?? '?'} nfts`,
                 Spent: `${totalSpentOnMint?.toFixed(2) ?? '?'} Ξ`
               }}
-              loading={loading}
+              loading={
+                loading &&
+                (totalNFTsMinted === null || totalNFTsMinted === undefined) &&
+                (totalSpentOnMint === null || totalSpentOnMint === undefined)
+              }
             />
           </Grid>
           <Grid xs={6}>
@@ -294,7 +298,11 @@ export const CardBody = ({
                 'Total spent': `${totalBoughtInETH?.toFixed(2) ?? '?'} Ξ`,
                 'Biggest purchase': `${biggestPurchase?.toFixed(2) ?? '?'} Ξ`
               }}
-              loading={loading}
+              loading={
+                loading &&
+                (totalBought === null || totalBought === undefined) &&
+                (totalBoughtInETH === null || totalBoughtInETH === undefined)
+              }
             />
           </Grid>
         </BoxedGrid>
@@ -308,7 +316,11 @@ export const CardBody = ({
                 'Total sales': `${totalSoldInETH?.toFixed(2) ?? '?'} Ξ`,
                 'Biggest sale': `${biggestSale?.toFixed(2) ?? '?'} Ξ`
               }}
-              loading={loading}
+              loading={
+                loading &&
+                (totalSold === null || totalSold === undefined) &&
+                (totalSoldInETH === null || totalSoldInETH === undefined)
+              }
             />
           </Grid>
           <Grid xs={6}>
@@ -320,7 +332,11 @@ export const CardBody = ({
                   avgHoldTime ? Number(avgHoldTime / 86400).toFixed(0) : '?'
                 } days`
               }}
-              loading={loading}
+              loading={
+                loading &&
+                (bluechips === null || bluechips === undefined) &&
+                (avgHoldTime === null || avgHoldTime === undefined)
+              }
             />
           </Grid>
         </BoxedGrid>

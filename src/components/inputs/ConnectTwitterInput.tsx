@@ -14,7 +14,7 @@ import { Twitter } from '@mui/icons-material'
 import { useState } from 'react'
 
 export const ConnectTwitterInput = (props: TextFieldProps) => {
-  const { setData } = useTwitterData()
+  const { setData, data } = useTwitterData()
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
   const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
@@ -56,7 +56,9 @@ export const ConnectTwitterInput = (props: TextFieldProps) => {
         required
         placeholder="@me"
         error={isError}
-        helperText={isError ? 'User with such handle not found' : null}
+        helperText={
+          isError && !data?.name ? 'User with such handle not found' : null
+        }
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">

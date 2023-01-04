@@ -114,30 +114,30 @@ function MyApp({
       </Script>
       <CacheProvider value={emotionCache}>
         <WagmiConfig client={wagmiClient}>
-          <TwitterDataContextProvider>
-            <AddressDataContextProvider>
-              <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Box display="flex" flexDirection="column" height="100%">
-                  <Header />
-                  <ThemeContainer
-                    sx={{
-                      mt: 4
-                    }}
-                    disableGutters
-                    maxWidth={false}
-                  >
-                    <GoogleAnalytics trackPageViews />
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Box display="flex" flexDirection="column" height="100%">
+              <Header />
+              <ThemeContainer
+                sx={{
+                  mt: 4
+                }}
+                disableGutters
+                maxWidth={false}
+              >
+                <GoogleAnalytics trackPageViews />
+                <TwitterDataContextProvider>
+                  <AddressDataContextProvider>
                     <Component {...pageProps} />
-                  </ThemeContainer>
-                  <Hidden smDown>
-                    <Box flexGrow={1} />
-                  </Hidden>
-                  <Footer />
-                </Box>
-              </ThemeProvider>
-            </AddressDataContextProvider>
-          </TwitterDataContextProvider>
+                  </AddressDataContextProvider>
+                </TwitterDataContextProvider>
+              </ThemeContainer>
+              <Hidden smDown>
+                <Box flexGrow={1} />
+              </Hidden>
+              <Footer />
+            </Box>
+          </ThemeProvider>
         </WagmiConfig>
       </CacheProvider>
     </>

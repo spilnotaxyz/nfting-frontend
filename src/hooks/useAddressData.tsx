@@ -20,7 +20,7 @@ export const useAddressData = () => {
   const context = useContext(AddressDataContext)
   if (!context)
     throw new Error(
-      'useAddressData must be used within TwitterDataContextProvider'
+      'useAddressData must be used within AddressDataContextProvider'
     )
   return context
 }

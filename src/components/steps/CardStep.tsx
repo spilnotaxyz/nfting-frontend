@@ -1,44 +1,85 @@
 import { useEffect } from 'react'
-import { useAccount } from 'wagmi'
 import { GRADIENTS } from '@constants/GRADIENTS'
 import { Card, CardBody } from '@ui'
 import { Theme, Typography, useMediaQuery } from '@mui/material'
-import { useCardData, useTwitterData, useGenerateWizardContext } from '@hooks'
+import {
+  useCardData,
+  useTwitterData,
+  useAddressData,
+  useGenerateWizardContext
+} from '@hooks'
 
 export const DummyStep = () => {
   const { data } = useTwitterData()
 
-  const { address } = useAccount()
+  const { address } = useAddressData()
 
   const { state, randomColorIndex } = useGenerateWizardContext()
 
-  const { data: cardData, setData, loading, setLoading } = useCardData()
+  const { data: cardData, appendData, loading, setLoading } = useCardData()
 
+  // data fetch effect
   useEffect(() => {
     if (!address) {
       console.error('address is not defined')
       return
     }
+
     ;(async () => {
       setLoading(true)
-      // create url with query params from state
-      const params = new URLSearchParams()
 
-      Object.entries(state).forEach(([key, value]) =>
-        params.append(key, value.toString())
-      )
+      // object to store continuation values, if there's page continuation
+      let continuations: {
+        continuationContracts?: string | null
+        continuationTransactions?: string | null
+      } = {}
 
-      try {
-        const response = await fetch(
-          `/backend/transactions/${address}` + '?' + params
+      // continue fetching data until there's no continuation - null value
+      while (
+        continuations.continuationContracts !== null ||
+        continuations.continuationTransactions !== null
+      ) {
+        // create url with query params from state
+        const params = new URLSearchParams()
+
+        Object.entries(state).forEach(([key, value]) =>
+          params.append(key, value.toString())
         )
-        const result = await response.json()
-        setData(result)
-      } finally {
-        setLoading(false)
+
+        // add continuation if there's any
+        if (continuations.continuationContracts)
+          params.append(
+            'continuationContracts',
+            continuations.continuationContracts
+          )
+
+        if (continuations.continuationTransactions)
+          params.append(
+            'continuationTransactions',
+            continuations.continuationTransactions
+          )
+
+        try {
+          const response = await fetch(
+            `/backend/transactions/${address}` + '?' + params
+          )
+          const { continuationContracts, continuationTransactions, ...result } =
+            await response.json()
+          appendData(result)
+
+          // update continuation values, if backend did not return it - set it to null
+          continuations = {
+            continuationContracts: continuationContracts ?? null,
+            continuationTransactions: continuationTransactions ?? null
+          }
+        } catch (e) {
+          console.error(e)
+        }
       }
+      // stop fetching
+      setLoading(false)
     })()
-  }, [address, state, setData, setLoading])
+  }, [address, state])
 
   const isMobile = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'))
 
@@ -46,13 +87,6 @@ export const DummyStep = () => {
     <>
       <Typography fontFamily="NeueMachina" align="center">
         OGs might need to wait a few minutes.{' '}
-        {isMobile && (
-          <>
-            {' '}
-            <br />
-            If it is taking too long, try refreshing the page.
-          </>
-        )}
       </Typography>
       <Card
         sx={{
@@ -69,8 +103,8 @@ export const DummyStep = () => {
           favouriteCommunity={state.favouriteCommunity}
           wish={state.wish}
           whoBroughtMeHere={state.whoBroughtMeHere}
-          loading={!data || !data.name || !data.image || !cardData || loading}
-          {...(cardData ?? {})}
+          loading={!data || !data.name || !data.image || loading}
+          {...cardData}
         />
       </Card>
     </>

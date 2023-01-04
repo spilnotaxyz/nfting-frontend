@@ -79,6 +79,9 @@ export const GenerateWizard = ({
     setState({})
     setStep(0)
     setData(null)
+    localStorage.removeItem('wizard-state')
+    localStorage.removeItem('wizard-step')
+    localStorage.removeItem('random-color-index')
   }
 
   return (
