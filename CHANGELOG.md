@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.20.0...v1.20.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* bad data calculations ([752ae79](https://github.com/spilnota-xyz/eve-frontend/commit/752ae79eca9cdfeb6dc1d2b4adf39b86a216ebc1))
+
 # [1.20.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.19.0...v1.20.0) (2023-01-04)
 
 
