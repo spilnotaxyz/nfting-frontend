@@ -66,10 +66,10 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundImage: 'url(/background.svg)',
+          backgroundImage: 'url(/background.png)',
           backgroundSize: 'cover',
           backgroundAttachment: 'fixed',
-          backgroundPosition: '0 0',
+          backgroundPosition: 'center',
           [ref.breakpoints.down('sm')]: {
             backgroundImage: 'url(/background-mobile.png)'
           }
