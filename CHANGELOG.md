@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.20.1...v1.21.0) (2023-01-10)
+
+
+### Features
+
+* replace product hunt button ([6609dfd](https://github.com/spilnota-xyz/eve-frontend/commit/6609dfd6a8ba9b7765f88c7cf55f23a151f54516))
+
 ## [1.20.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.20.0...v1.20.1) (2023-01-04)
 
 
