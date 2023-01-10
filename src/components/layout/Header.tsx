@@ -44,14 +44,15 @@ export const Header = () => {
             </Link>
             <Box sx={{ flexGrow: 1 }} />
             <a
-              href="https://www.producthunt.com/posts/nfting-card-every-action-counts?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-nfting&#0045;card&#0045;every&#0045;action&#0045;counts"
+              href="https://www.producthunt.com/posts/nfting-card?utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-nfting&#0045;card"
               target="_blank"
               rel="noreferrer"
             >
               {/* eslint-disable-next-line @next/next/no-img-element*/}
               <img
-                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=373150&theme=dark"
-                alt="NFTing&#0032;card&#0032;&#0045;&#0032;Every&#0032;action&#0032;counts - Create&#0032;your&#0032;NFTing&#0032;card&#0032;with&#0032;your&#0032;accomplishments | Product Hunt"
+                src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=373150&theme=dark&period=weekly&topic_id=501"
+                alt="NFTing&#0032;Card - Create&#0032;your&#0032;NFTing&#0032;card&#0032;with&#0032;your&#0032;accomplishments | Product Hunt"
+                style="width: 250px; height: 54px;"
                 width={isMobile ? 'auto' : 250}
                 height={isMobile ? 30 : 54}
               />
