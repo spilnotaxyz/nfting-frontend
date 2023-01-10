@@ -1,3 +1,10 @@
+## [1.21.1](https://github.com/spilnota-xyz/eve-frontend/compare/v1.21.0...v1.21.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* `style` bug ([d1601da](https://github.com/spilnota-xyz/eve-frontend/commit/d1601da43d59091b9c2f45f2a8f5acf1f085aecb))
+
 # [1.21.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.20.1...v1.21.0) (2023-01-10)
 
 
