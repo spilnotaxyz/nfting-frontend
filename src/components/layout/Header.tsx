@@ -52,7 +52,6 @@ export const Header = () => {
               <img
                 src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=373150&theme=dark&period=weekly&topic_id=501"
                 alt="NFTing&#0032;Card - Create&#0032;your&#0032;NFTing&#0032;card&#0032;with&#0032;your&#0032;accomplishments | Product Hunt"
-                style="width: 250px; height: 54px;"
                 width={isMobile ? 'auto' : 250}
                 height={isMobile ? 30 : 54}
               />
