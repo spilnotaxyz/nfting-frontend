@@ -22,45 +22,6 @@ jobs:
         run: yarn install
       - name: Lint 🧹
         run: yarn lint
-  deploy:
-    name: Deploy
-    needs: lint
-    if: github.event.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🧲
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Install dependencies 📦
-        run: yarn install
-      - name: Build 🪛
-        run: yarn build
-      - name: Decode .env.production
-        run: echo "${{ secrets.ENV_FILE_BASE64 }}" | base64 -d > .env.production
-      - name: SSH Copy
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "public,.next,.env.local,package.json"
-          target: "frontend"
-      - name: SSH Restart
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
-            cd frontend
-            yarn --production
-            pm2 delete "frontend"
-            pm2 start --name "frontend" yarn -- start --keepAliveTimeout 600000
   release:
     name: Release
     needs: lint
@@ -72,12 +33,12 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SEMANTIC_RELEASE_PAT }}
       - name: Install dependencies 📦
-        run: yarn install 
+        run: yarn install
       - name: Release 🪄🎁
         if: ${{ github.ref == 'refs/heads/main' }}
         run: yarn semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_PAT }}
+      
