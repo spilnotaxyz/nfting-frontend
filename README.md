@@ -1,2 +1,2 @@
 # Spilnota NFTing Eve
-`Soon...`
+Soon...
