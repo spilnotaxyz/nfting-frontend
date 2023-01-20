@@ -90,7 +90,7 @@ function MyApp({
         />
         <meta
           property="twitter:description"
-          content="Celebrate NY Eve with Spilnota! Get your Spilnota Card and share love with the web3 community!"
+          content="Celebrate NY Eve with Spilnota! Get your Spilnota Card and share love with the web3 community."
         />
         <meta
           property="twitter:image"
