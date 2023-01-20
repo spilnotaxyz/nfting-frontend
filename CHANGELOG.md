@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.22.0...v1.23.0) (2023-01-20)
+
+
+### Features
+
+* 🚑️ force deploy ([2e2f5cb](https://github.com/spilnota-xyz/eve-frontend/commit/2e2f5cb52d8da00d5017be29d96a5648d0ab8319))
+
 # [1.22.0](https://github.com/spilnota-xyz/eve-frontend/compare/v1.21.1...v1.22.0) (2023-01-20)
 
 
